@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Additions | Wolf Carpenters | Expand Your Living Space</title>
+    <meta name="description" content="Professional home addition services. Add extra rooms, second stories, or expand your living space with expert craftsmanship. Get your free estimate today!">
+    
+    <!-- Performance Optimization -->
+    <meta name="theme-color" content="#E1BA47">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Wolf Additions">
+    
+    <!-- DNS Prefetch & Preconnect - CDN -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="styles.min.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" as="style">
+    <link rel="preload" href="0 - Brand Logo/brand-logo-wolfcarpenters.png" as="image">
+    
+    <!-- Stylesheets - Minified -->
+    <link rel="stylesheet" href="styles.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"></noscript>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="0 - Brand Logo/brand-logo-wolfcarpenters.png" alt="Wolf Carpenters Logo">
+            </div>
+            <a href="#contact-form" class="nav-cta">Get Free Estimate</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Expand Your Home. <span class="highlight">Elevate Your Life</span></h1>
+                <p>Maybe your family is growing, your work setup has changed, or you're finally ready to create that extra space you've always dreamed of. We design and build custom home additions that feel like they've always been part of your house—seamless in function, style, and architecture.</p>
+                
+                <div class="hero-badges">
+                    <div class="badge">
+                        <span class="badge-icon">✓</span>
+                        <span class="badge-text">Licensed & Insured</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-icon">✓</span>
+                        <span class="badge-text">20+ Years Experience</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-icon">✓</span>
+                        <span class="badge-text">Seamless Integration</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-icon">✓</span>
+                        <span class="badge-text">Turnkey Services</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hero Form -->
+            <div class="hero-form-container">
+                <h3>Get Your Free Estimate</h3>
+                <p>Start your addition project today</p>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label for="addition-type">What type of addition are you considering? *</label>
+                        <select id="addition-type" name="addition-type" required>
+                            <option value="">Select addition type</option>
+                            <option value="room-addition">Room Addition</option>
+                            <option value="second-story">Second Story Addition</option>
+                            <option value="garage">Garage Addition</option>
+                            <option value="sunroom">Sunroom/Patio Enclosure</option>
+                            <option value="master-suite">Master Suite</option>
+                            <option value="not-sure">Not Sure Yet</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-button">Get Free Consultation</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fixed Call Button -->
+    <a href="#contact-form" class="call-button-fixed" title="Get Free Estimate">
+        📞
+    </a>
+
+    <!-- Before & After Section - INTEREST -->
+    <section class="before-after-section" id="transformations">
+        <div class="container">
+            <h2 class="section-title">See The <span style="color: var(--primary-color);">Transformation</span></h2>
+            <p class="section-subtitle">Drag the slider to see how we transform homes with seamless additions. This could be your home next!</p>
+            <div class="comparison-container">
+                <div class="image-slider-container" id="imageSlider">
+                    <picture>
+                        <source 
+                            type="image/webp"
+                            srcset="addition photos/webp/after 1-800w.webp 800w,
+                                    addition photos/webp/after 1-1200w.webp 1200w,
+                                    addition photos/webp/after 1.webp 1920w"
+                            sizes="(max-width: 640px) 100vw, (max-width: 968px) 90vw, 900px">
+                        <img src="addition photos/after 1.jpg" alt="Home Addition After" class="img-after" loading="eager" width="900" height="600">
+                    </picture>
+                    <picture>
+                        <source 
+                            type="image/webp"
+                            srcset="addition photos/webp/before 1 -800w.webp 800w,
+                                    addition photos/webp/before 1 -1200w.webp 1200w,
+                                    addition photos/webp/before 1 .webp 1920w"
+                            sizes="(max-width: 640px) 100vw, (max-width: 968px) 90vw, 900px">
+                        <img src="addition photos/before 1 .jpg" alt="Home Addition Before" class="img-before" id="imgBefore" loading="eager" width="900" height="600">
+                    </picture>
+                    <div class="slider-line" id="sliderLine"></div>
+                    <div class="slider-button" id="sliderButton"></div>
+                    <span class="comparison-label label-before">BEFORE</span>
+                    <span class="comparison-label label-after">AFTER</span>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="#contact" class="cta-button">Start My Home Addition Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Remodeling vs Addition Section -->
+    <section class="intro-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose a Home Addition Over Remodeling?</h2>
+            <div class="intro-content">
+                <p><strong>Remodeling reshapes what you already have. An addition gives you more of what you need—without compromise.</strong></p>
+                <p>When your family is growing, your work-from-home needs have changed, or you simply need more room to breathe, a home addition is the answer. We don't just build extra square footage—we create seamless extensions that feel like they've always been part of your home.</p>
+                <p>From designing the perfect master suite to adding that home office you've been dreaming about, our additions blend architecture, function, and your lifestyle into one cohesive space.</p>
+                <p style="color: var(--primary-color); font-weight: 600; font-size: 1.15rem;">More space. Same home. Better living.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <!-- Portfolio Grid -->
+            <h3 class="section-title" style="font-size: 2rem; margin-top: 60px;">Our Completed Projects</h3>
+            <p class="section-subtitle">Browse our Instagram-style gallery of real home additions</p>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <picture>
+                        <source 
+                            type="image/webp"
+                            srcset="addition photos/webp/1-thumb.webp 400w,
+                                    addition photos/webp/1-800w.webp 800w,
+                                    addition photos/webp/1.webp 1200w"
+                            sizes="(max-width: 640px) 100vw, (max-width: 968px) 50vw, 25vw">
+                        <img src="addition photos/1.jpg" alt="Home Addition Project 1" loading="lazy" width="400" height="280">
+                    </picture>
+                    <div class="portfolio-overlay">
+                        <h4>Custom Addition</h4>
+                        <p>Seamless integration</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <picture>
+                        <source 
+                            type="image/webp"
+                            srcset="addition photos/webp/2-thumb.webp 400w,
+                                    addition photos/webp/2-800w.webp 800w,
+                                    addition photos/webp/2.webp 1200w"
+                            sizes="(max-width: 640px) 100vw, (max-width: 968px) 50vw, 25vw">
+                        <img src="addition photos/2.jpg" alt="Home Addition Project 2" loading="lazy" width="400" height="280">
+                    </picture>
+                    <div class="portfolio-overlay">
+                        <h4>Room Expansion</h4>
+                        <p>Quality craftsmanship</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <picture>
+                        <source 
+                            type="image/webp"
+                            srcset="addition photos/webp/3-thumb.webp 400w,
+                                    addition photos/webp/3-800w.webp 800w,
+                                    addition photos/webp/3.webp 1200w"
+                            sizes="(max-width: 640px) 100vw, (max-width: 968px) 50vw, 25vw">
+                        <img src="addition photos/3.jpg" alt="Home Addition Project 3" loading="lazy" width="400" height="280">
+                    </picture>
+                    <div class="portfolio-overlay">
+                        <h4>Modern Addition</h4>
+                        <p>Beautiful design</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="addition photos/20240122_150041.jpg" alt="Addition Construction" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>In Progress</h4>
+                        <p>Expert construction</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="addition photos/20250403_140244.jpg" alt="Home Extension" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>Home Extension</h4>
+                        <p>Functional space</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="addition photos/20250405_081552.jpg" alt="Addition Detail" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>Detail Work</h4>
+                        <p>Precision crafted</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="addition photos/20250418_121017.jpg" alt="Custom Room" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>Custom Room</h4>
+                        <p>Tailored design</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="addition photos/20250429_121406.jpg" alt="Finished Addition" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>Finished Project</h4>
+                        <p>Ready to enjoy</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="addition photos/20250503_122937.jpg" alt="Addition Interior" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>Interior Space</h4>
+                        <p>Light and airy</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="addition photos/20250503_123003.jpg" alt="Room Addition" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>Room Addition</h4>
+                        <p>Seamless blend</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="addition photos/IMG-20210825-WA0036.jpg" alt="Addition Exterior" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>Exterior View</h4>
+                        <p>Architectural harmony</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="addition photos/IMG-20210903-WA0047.jpg" alt="Second Story" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>Second Story</h4>
+                        <p>Elevated living</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="addition photos/IMG-20240209-WA0036.jpg" alt="Modern Addition" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>Modern Design</h4>
+                        <p>Contemporary style</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <picture>
+                        <!-- AVIF - Formato mais leve (85-90% de compressão) -->
+                        <source type="image/avif" 
+                                srcset="addition photos/avif/IMG-20240220-WA0072-thumb.avif 400w,
+                                        addition photos/avif/IMG-20240220-WA0072-800w.avif 800w,
+                                        addition photos/avif/IMG-20240220-WA0072-1200w.avif 1200w,
+                                        addition photos/avif/IMG-20240220-WA0072.avif 1920w"
+                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw">
+                        <!-- WebP - Fallback moderno -->
+                        <source type="image/webp" 
+                                srcset="addition photos/webp/IMG-20240220-WA0072-thumb.webp 400w,
+                                        addition photos/webp/IMG-20240220-WA0072-800w.webp 800w,
+                                        addition photos/webp/IMG-20240220-WA0072-1200w.webp 1200w,
+                                        addition photos/webp/IMG-20240220-WA0072.webp 1920w"
+                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw">
+                        <!-- JPG otimizado - Fallback universal -->
+                        <img src="addition photos/optimized/IMG-20240220-WA0072.jpg" 
+                             alt="Addition Details" 
+                             loading="lazy" 
+                             decoding="async"
+                             width="1500" 
+                             height="2000">
+                    </picture>
+                    <div class="portfolio-overlay">
+                        <h4>Fine Details</h4>
+                        <p>Expert finishing</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <picture>
+                        <source type="image/avif" 
+                                srcset="addition photos/avif/IMG-20240220-WA0073-thumb.avif 400w,
+                                        addition photos/avif/IMG-20240220-WA0073-800w.avif 800w,
+                                        addition photos/avif/IMG-20240220-WA0073-1200w.avif 1200w,
+                                        addition photos/avif/IMG-20240220-WA0073.avif 1920w"
+                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw">
+                        <source type="image/webp" 
+                                srcset="addition photos/webp/IMG-20240220-WA0073-thumb.webp 400w,
+                                        addition photos/webp/IMG-20240220-WA0073-800w.webp 800w,
+                                        addition photos/webp/IMG-20240220-WA0073-1200w.webp 1200w,
+                                        addition photos/webp/IMG-20240220-WA0073.webp 1920w"
+                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw">
+                        <img src="addition photos/optimized/IMG-20240220-WA0073.jpg" 
+                             alt="Custom Work" 
+                             loading="lazy" 
+                             decoding="async"
+                             width="1536" 
+                             height="2048">
+                    </picture>
+                    <div class="portfolio-overlay">
+                        <h4>Custom Features</h4>
+                        <p>Unique touches</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <picture>
+                        <source type="image/avif" 
+                                srcset="addition photos/avif/IMG-20250410-WA0042-thumb.avif 400w,
+                                        addition photos/avif/IMG-20250410-WA0042-800w.avif 800w,
+                                        addition photos/avif/IMG-20250410-WA0042-1200w.avif 1200w,
+                                        addition photos/avif/IMG-20250410-WA0042.avif 1920w"
+                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw">
+                        <source type="image/webp" 
+                                srcset="addition photos/webp/IMG-20250410-WA0042-thumb.webp 400w,
+                                        addition photos/webp/IMG-20250410-WA0042-800w.webp 800w,
+                                        addition photos/webp/IMG-20250410-WA0042-1200w.webp 1200w,
+                                        addition photos/webp/IMG-20250410-WA0042.webp 1920w"
+                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw">
+                        <img src="addition photos/optimized/IMG-20250410-WA0042.jpg" 
+                             alt="Completed Addition" 
+                             loading="lazy" 
+                             decoding="async"
+                             width="1599" 
+                             height="899">
+                    </picture>
+                    <div class="portfolio-overlay">
+                        <h4>Dream Space</h4>
+                        <p>Mission accomplished</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="addition photos/76aeffaa-991b-4761-95be-5466648aeb45_20250423_165323.jpg" alt="Addition Project" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>Recent Project</h4>
+                        <p>Wolf quality</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="addition photos/after 1.jpg" alt="After Addition" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <h4>Transformation</h4>
+                        <p>Beautiful result</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Types of Additions -->
+    <section class="types-section">
+        <div class="container">
+            <h2 class="section-title">Types of Home Additions We Build</h2>
+            <p class="section-subtitle">Whatever your needs, we have the expertise to expand your home perfectly</p>
+            
+            <div class="types-grid">
+                <div class="type-card">
+                    <div class="type-icon">🛏️</div>
+                    <h3>Room Additions</h3>
+                    <p>All you need is a little more room—a bedroom for the baby on the way, a sun-filled family room, or a quiet home office that seamlessly integrates with your existing home.</p>
+                    <ul class="type-features">
+                        <li>Master Suite Additions</li>
+                        <li>Extra Bedrooms & Bathrooms</li>
+                        <li>Home Office Spaces</li>
+                        <li>Living Room Expansions</li>
+                        <li>Family Room Extensions</li>
+                    </ul>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-icon">🏢</div>
+                    <h3>Second Story Additions</h3>
+                    <p>Maximize your ground space limitations by building up. Boost your property value significantly while gaining the extra rooms your family needs.</p>
+                    <ul class="type-features">
+                        <li>Full Second Story</li>
+                        <li>Partial Second Floor</li>
+                        <li>Master Suite Above Garage</li>
+                        <li>Additional Living Quarters</li>
+                        <li>Teen or Guest Suites</li>
+                    </ul>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-icon">🚗</div>
+                    <h3>Garage Additions</h3>
+                    <p>Protect your vehicles and add valuable storage space. Or convert into a rental unit, guest suite, or workshop—a cost-effective way to add functionality.</p>
+                    <ul class="type-features">
+                        <li>Attached Garages</li>
+                        <li>Detached Garages</li>
+                        <li>Workshop Spaces</li>
+                        <li>Storage Solutions</li>
+                        <li>Garage with Living Space Above</li>
+                    </ul>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-icon">☀️</div>
+                    <h3>Sunrooms & Patio Enclosures</h3>
+                    <p>There's something magical about natural light flooding your living space. Create a reading nook, breakfast space, or playroom that feels connected—not tacked on.</p>
+                    <ul class="type-features">
+                        <li>Four-Season Sunrooms</li>
+                        <li>Three-Season Rooms</li>
+                        <li>Screened Porch Enclosures</li>
+                        <li>Glass Room Additions</li>
+                        <li>Year-Round Outdoor Living</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Wolf Carpenters?</h2>
+            <p class="section-subtitle">Expertise you can trust, results that exceed expectations</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🏆</div>
+                    <h3>Expertise You Can Trust</h3>
+                    <p>Over two decades of addition and expansion projects. We understand that frequent communication and attention to detail is essential to your peace of mind.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔄</div>
+                    <h3>Seamless Integration</h3>
+                    <p>Your addition will look and feel like it's always been part of your home. We match architecture, materials, and style perfectly—no "tacked on" appearance.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔑</div>
+                    <h3>Turnkey Services</h3>
+                    <p>From initial design to final installation, we handle everything. Permits, plans, construction, and finishing—all managed by our expert team.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">�</div>
+                    <h3>Transparent Process</h3>
+                    <p>No surprises, no hidden costs. We provide clear timelines, detailed estimates, and solutions to fit all budgets. You'll know exactly what to expect.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Strong ROI</h3>
+                    <p>Quality additions consistently offer strong returns by enhancing beauty, functionality, and buyer appeal. Increase your property value significantly.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Efficient Timeline</h3>
+                    <p>We work efficiently without cutting corners. Most projects completed in 8-16 weeks depending on scope. Clear communication prevents delays and surprises.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" id="team">
+        <div class="container">
+            <div class="team-content fade-in">
+                <div class="team-images">
+                    <div class="team-image-main">
+                        <img src="6 - Meet the Team - Wolf Carpenters Crew/team-group-in-warehouse.webp" alt="Wolf Carpenters Home Addition Team">
+                    </div>
+                    <div class="team-image-small">
+                        <img src="6 - Meet the Team - Wolf Carpenters Crew/team-leaders-closeup.webp" alt="Wolf Carpenters Leaders">
+                    </div>
+                    <div class="team-image-small">
+                        <img src="6 - Meet the Team - Wolf Carpenters Crew/team-planning-blueprints.webp" alt="Team Planning Meeting">
+                    </div>
+                </div>
+                <div class="team-text">
+                    <span class="family-badge">🏡 Family-Owned Since 2000</span>
+                    <h2>Meet The <span style="color: var(--primary-color);">Wolf Family</span> Behind Your Dream Home Addition</h2>
+                    <p><strong>We're not just contractors—we're a family business.</strong> For over 25 years, Wolf has been transforming homes with the same care we'd give our own family's home.</p>
+                    <p>From a small family carpentry shop to a full team of addition specialists, every project is treated like family—because our clients become part of the Wolf family.</p>
+                    <p><strong>When you choose Wolf, you get tradition, craftsmanship values, and personal commitment to excellence.</strong></p>
+                    <p style="color: var(--primary-color); font-weight: 600; font-size: 1.15rem;">Your home addition deserves to be built by people who truly care.</p>
+                    
+                    <div class="team-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Families Served</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">25+</div>
+                            <div class="stat-label">Years Family Business</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Customer Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="#contact" class="cta-button">Start My Home Addition Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">Our Proven 8-Step Process</h2>
+            <p class="section-subtitle">From concept to completion, we guide you through every step with clarity and care</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Free Consultation</h3>
+                    <p>We discuss your needs, vision, and budget. No obligation, no pressure—just expert guidance.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Site Assessment</h3>
+                    <p>We evaluate your property, take measurements, and review structural considerations.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Design & Planning</h3>
+                    <p>Our team creates detailed designs that match your home's architecture and your lifestyle.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Permits & Approvals</h3>
+                    <p>We handle all permits, building codes, and zoning requirements—no hassle for you.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Pre-Construction</h3>
+                    <p>Final material selections, timeline confirmation, and orientation meeting with our team.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h3>Construction</h3>
+                    <p>Expert craftsmen build your addition with precision, quality materials, and attention to detail.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">7</div>
+                    <h3>Finishing Touches</h3>
+                    <p>Paint, trim, flooring, and all final details to ensure perfection.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">8</div>
+                    <h3>Final Walkthrough</h3>
+                    <p>We ensure everything is perfect before you enjoy your beautiful new space.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Get answers to common questions about home additions</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>How long does a home addition typically take?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most standard home additions take 8-16 weeks from breaking ground to completion. The timeline depends on the size and complexity of your project. A single-room addition might take 8-10 weeks, while larger projects like second-story additions may extend to 12-16 weeks. We provide a detailed timeline during the planning phase, and our clear communication throughout prevents surprises.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Will my addition look like it was "tacked on"?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely not. Seamless integration is our specialty. We carefully match your existing home's architecture, materials, rooflines, siding, and windows. Our design process ensures your addition feels like it's always been part of your house—not an afterthought. We take pride in creating additions that enhance your entire home's aesthetic.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Will a home addition increase my property value?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Home additions consistently offer strong returns on investment. Adding square footage, especially functional spaces like bedrooms, bathrooms, or primary suites, significantly boosts property value and buyer appeal. Most homeowners recoup 50-80% of their investment at resale, and you enjoy the benefits immediately. Plus, you avoid the costs and stress of moving to a larger home.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Do I need to move out during construction?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>In most cases, no. We take great care to minimize disruption to your daily life. We'll work with you to establish clear work zones, maintain clean job sites, and schedule noisy work during convenient times. For most additions, you can remain comfortable in your home. We'll discuss any special considerations during the planning phase.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Do you handle permits and approvals?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, absolutely. We handle all permits, building codes, zoning requirements, and inspections. Our team is well-versed in local regulations and maintains excellent relationships with building departments. This is part of our turnkey service—you don't have to navigate the bureaucracy. We ensure everything is done correctly and legally.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <p class="section-subtitle">Real feedback from homeowners who trusted us with their additions</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">"From start to finish, Wolf Carpenters was extremely professional. Our second-story addition looks like it's always been there. The craftsmanship is outstanding, and they completed the project on time. Very pleased with sales, service, and production!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MJ</div>
+                        <div class="testimonial-info">
+                            <h4>Michael & Jennifer</h4>
+                            <p>Second Story Addition</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">"We needed more space for our growing family, and Wolf Carpenters delivered exactly what we wanted. The master suite addition is beautiful, and the attention to detail is incredible. They matched our home's architecture perfectly!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SR</div>
+                        <div class="testimonial-info">
+                            <h4>Sarah Rodriguez</h4>
+                            <p>Master Suite Addition</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">"Outstanding communication throughout the entire process. They kept us informed every step of the way, and there were no surprises. Our sunroom is now our favorite room in the house. Highly recommend Wolf Carpenters!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">DK</div>
+                        <div class="testimonial-info">
+                            <h4>David Kim</h4>
+                            <p>Sunroom Addition</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Contact Form Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div style="max-width: 1200px; margin: 0 auto; display: flex; gap: 60px; align-items: center; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 400px; color: var(--white);">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: var(--white);">Ready to Expand Your Home?</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 30px; color: rgba(255,255,255,0.9);">Schedule a free consultation and detailed estimate for your home addition project. Let's discuss how we can create the perfect space for your family.</p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 30px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <span style="font-size: 1.5rem;">✓</span>
+                            <span style="font-size: 1.1rem;">Free In-Home Consultation</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <span style="font-size: 1.5rem;">✓</span>
+                            <span style="font-size: 1.1rem;">Detailed Project Estimate</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <span style="font-size: 1.5rem;">✓</span>
+                            <span style="font-size: 1.1rem;">No Obligation, No Pressure</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <span style="font-size: 1.5rem;">✓</span>
+                            <span style="font-size: 1.1rem;">25+ Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="hero-form-container" id="contact-form" style="margin: 0; scroll-margin-top: 120px;">
+                    <h3>Get Your Free Estimate</h3>
+                    <p>Start your addition project today</p>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="contact-name">Full Name *</label>
+                            <input type="text" id="contact-name" name="name" required placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email *</label>
+                            <input type="email" id="contact-email" name="email" required placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-phone">Phone Number *</label>
+                            <input type="tel" id="contact-phone" name="phone" required placeholder="(555) 123-4567">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-addition-type">What type of addition are you considering? *</label>
+                            <select id="contact-addition-type" name="addition-type" required>
+                                <option value="">Select addition type</option>
+                                <option value="room-addition">Room Addition</option>
+                                <option value="second-story">Second Story Addition</option>
+                                <option value="garage">Garage Addition</option>
+                                <option value="sunroom">Sunroom/Patio Enclosure</option>
+                                <option value="master-suite">Master Suite</option>
+                                <option value="not-sure">Not Sure Yet</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="submit-button">Get Free Consultation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Wolf Carpenters. All rights reserved. | Expert Home Addition Services</p>
+        </div>
+    </footer>
+    
+    <!-- Optimized JavaScript with defer - Minified -->
+    <script src="scripts.min.js" defer></script>
+    
+    <!-- Webhook Handler - Updated -->
+    <script src="webhook-handler.min.js?v=2"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/ADU-HOMEADDITION/sw.js')
+                    .then(reg => console.log('✅ Service Worker registered:', reg.scope))
+                    .catch(err => console.log('❌ Service Worker registration failed:', err));
+            });
+        }
+    </script>
+</body>
+</html>

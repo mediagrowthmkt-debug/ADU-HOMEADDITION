@@ -1,0 +1,59 @@
+{
+  "name": "Wolf Carpenters - Home Additions",
+  "short_name": "Wolf Additions",
+  "description": "Professional home addition services. Expert craftsmanship for room additions, second stories, and home expansions.",
+  "start_url": "/ADU-HOMEADDITION/home-additions.html",
+  "scope": "/ADU-HOMEADDITION/",
+  "display": "standalone",
+  "background_color": "#010101",
+  "theme_color": "#E1BA47",
+  "orientation": "portrait-primary",
+  "categories": ["business", "construction", "home improvement"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "0 - Brand Logo/brand-logo-wolfcarpenters.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "0 - Brand Logo/brand-logo-wolfcarpenters.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "addition photos/webp/after 1.webp",
+      "sizes": "1920x1080",
+      "type": "image/webp",
+      "platform": "wide",
+      "label": "Home Addition Transformation"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Get Free Estimate",
+      "short_name": "Estimate",
+      "description": "Request a free consultation",
+      "url": "/ADU-HOMEADDITION/home-additions.html#contact",
+      "icons": [
+        {
+          "src": "0 - Brand Logo/brand-logo-wolfcarpenters.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "iarc_rating_id": "",
+  "share_target": {
+    "action": "/ADU-HOMEADDITION/home-additions.html#contact",
+    "method": "GET",
+    "enctype": "application/x-www-form-urlencoded"
+  }
+}
