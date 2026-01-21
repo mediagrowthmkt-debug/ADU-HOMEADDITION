@@ -76,3 +76,100 @@ document.addEventListener('DOMContentLoaded', function() {
         slider.addEventListener('touchmove', updateSlider, { passive: true });
     }
 }, { passive: true });
+
+// Wait for everything to load
+window.addEventListener('load', function() {
+    console.log('=== TRANSFORMATION VIEWER INITIALIZING ===');
+    
+    // Hero Slideshow
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    if (heroSlides.length > 1) {
+        let currentSlide = 0;
+        setInterval(function() {
+            heroSlides[currentSlide].classList.remove('active');
+            const img = heroSlides[currentSlide].querySelector('img');
+            if (img) {
+                const newImg = img.cloneNode(true);
+                img.parentNode.replaceChild(newImg, img);
+            }
+            currentSlide = (currentSlide + 1) % heroSlides.length;
+            heroSlides[currentSlide].classList.add('active');
+        }, 8000);
+    }
+    
+    // Transformation Viewer - GUARANTEED TO WORK
+    setTimeout(function() {
+        const buttons = document.querySelectorAll('.stage-btn');
+        const stages = document.querySelectorAll('.transformation-stage');
+        
+        console.log('Found buttons:', buttons.length);
+        console.log('Found stages:', stages.length);
+        
+        if (buttons.length === 0 || stages.length === 0) {
+            console.error('Elements not found!');
+            return;
+        }
+        
+        let autoInterval = null;
+        let currentIdx = 0;
+        
+        // Main function to switch stages
+        function switchToStage(stageName) {
+            console.log('Switching to:', stageName);
+            
+            // Remove all active classes
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+            for (let i = 0; i < stages.length; i++) {
+                stages[i].classList.remove('active');
+            }
+            
+            // Add active to target
+            for (let i = 0; i < buttons.length; i++) {
+                if (buttons[i].getAttribute('data-stage') === stageName) {
+                    buttons[i].classList.add('active');
+                }
+            }
+            for (let i = 0; i < stages.length; i++) {
+                if (stages[i].getAttribute('data-stage') === stageName) {
+                    stages[i].classList.add('active');
+                }
+            }
+        }
+        
+        // Auto-play function
+        function autoAdvance() {
+            const stageList = ['before', 'during', 'after'];
+            currentIdx = (currentIdx + 1) % stageList.length;
+            switchToStage(stageList[currentIdx]);
+        }
+        
+        // Setup button clicks
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener('click', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                
+                const targetStage = this.getAttribute('data-stage');
+                console.log('Button clicked:', targetStage);
+                
+                // Update current index
+                if (targetStage === 'before') currentIdx = 0;
+                if (targetStage === 'during') currentIdx = 1;
+                if (targetStage === 'after') currentIdx = 2;
+                
+                switchToStage(targetStage);
+                
+                // Restart auto-play
+                if (autoInterval) clearInterval(autoInterval);
+                autoInterval = setInterval(autoAdvance, 3000);
+            }, false);
+        }
+        
+        // Start auto-play immediately
+        autoInterval = setInterval(autoAdvance, 3000);
+        console.log('=== AUTO-PLAY STARTED (3 seconds) ===');
+        
+    }, 500); // Wait 500ms to ensure DOM is ready
+});

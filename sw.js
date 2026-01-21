@@ -1,10 +1,10 @@
 // Service Worker para PWA e Cache Offline
-// Versão: 1.0.0
-// Gerado em: 2025-12-14
+// Versão: 1.0.8
+// Gerado em: 2025-01-20
 
-const CACHE_NAME = 'wolf-additions-v1';
-const STATIC_CACHE = 'static-v1';
-const IMAGE_CACHE = 'images-v1';
+const CACHE_NAME = 'wolf-additions-v8';
+const STATIC_CACHE = 'static-v7';
+const IMAGE_CACHE = 'images-v7';
 
 // Recursos críticos para cache imediato
 const CRITICAL_ASSETS = [

@@ -26,12 +26,12 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     
     <!-- Preload Critical Resources -->
-    <link rel="preload" href="styles.min.css" as="style">
+    <link rel="preload" href="styles.min.css?v=1768961812" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" as="style">
-    <link rel="preload" href="0 - Brand Logo/brand-logo-wolfcarpenters.png" as="image">
+    <link rel="preload" href="0 - Brand Logo/brand-logo-wolfcarpenters.webp" as="image">
     
     <!-- Stylesheets - Minified -->
-    <link rel="stylesheet" href="styles.min.css">
+    <link rel="stylesheet" href="styles.min.css?v=1768961812">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"></noscript>
 </head>
@@ -40,7 +40,7 @@
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <img src="0 - Brand Logo/brand-logo-wolfcarpenters.png" alt="Wolf Carpenters Logo">
+                <img src="0 - Brand Logo/brand-logo-wolfcarpenters.webp" alt="Wolf Carpenters Logo" width="200" height="202">
             </div>
             <a href="#contact-form" class="nav-cta">Get Free Estimate</a>
         </div>
@@ -48,6 +48,14 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
+        <div class="hero-slideshow">
+            <div class="hero-slide active">
+                <img src="hero images/20250503_122937.webp" alt="Home Addition Background 1">
+            </div>
+            <div class="hero-slide">
+                <img src="hero images/after 1.webp" alt="Home Addition Background 2">
+            </div>
+        </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-text">
@@ -61,7 +69,7 @@
                     </div>
                     <div class="badge">
                         <span class="badge-icon">✓</span>
-                        <span class="badge-text">20+ Years Experience</span>
+                        <span class="badge-text">10+ Years Experience</span>
                     </div>
                     <div class="badge">
                         <span class="badge-icon">✓</span>
@@ -118,38 +126,154 @@
     <section class="before-after-section" id="transformations">
         <div class="container">
             <h2 class="section-title">See The <span style="color: var(--primary-color);">Transformation</span></h2>
-            <p class="section-subtitle">Drag the slider to see how we transform homes with seamless additions. This could be your home next!</p>
+            <p class="section-subtitle">Click the buttons to see the complete journey: Before, During Construction, and After</p>
+            
+            <!-- Stage Selector Buttons -->
+            <div class="stage-selector">
+                <button class="stage-btn active" data-stage="before">
+                    <span class="stage-number">1</span>
+                    <span class="stage-label">BEFORE</span>
+                </button>
+                <button class="stage-btn" data-stage="during">
+                    <span class="stage-number">2</span>
+                    <span class="stage-label">DURING</span>
+                </button>
+                <button class="stage-btn" data-stage="after">
+                    <span class="stage-number">3</span>
+                    <span class="stage-label">AFTER</span>
+                </button>
+            </div>
+
             <div class="comparison-container">
-                <div class="image-slider-container" id="imageSlider">
-                    <picture>
-                        <source 
-                            type="image/webp"
-                            srcset="addition photos/webp/after 1-800w.webp 800w,
-                                    addition photos/webp/after 1-1200w.webp 1200w,
-                                    addition photos/webp/after 1.webp 1920w"
-                            sizes="(max-width: 640px) 100vw, (max-width: 968px) 90vw, 900px">
-                        <img src="addition photos/after 1.jpg" alt="Home Addition After" class="img-after" loading="eager" width="900" height="600">
-                    </picture>
-                    <picture>
-                        <source 
-                            type="image/webp"
-                            srcset="addition photos/webp/before 1 -800w.webp 800w,
-                                    addition photos/webp/before 1 -1200w.webp 1200w,
-                                    addition photos/webp/before 1 .webp 1920w"
-                            sizes="(max-width: 640px) 100vw, (max-width: 968px) 90vw, 900px">
-                        <img src="addition photos/before 1 .jpg" alt="Home Addition Before" class="img-before" id="imgBefore" loading="eager" width="900" height="600">
-                    </picture>
-                    <div class="slider-line" id="sliderLine"></div>
-                    <div class="slider-button" id="sliderButton"></div>
-                    <span class="comparison-label label-before">BEFORE</span>
-                    <span class="comparison-label label-after">AFTER</span>
+                <div class="transformation-viewer">
+                    <!-- Before Image -->
+                    <div class="transformation-stage active" data-stage="before">
+                        <img src="before and after effetc/before.webp" alt="Before Addition" loading="eager" width="8160" height="6120" class="rotate-img">
+                        <div class="stage-overlay">
+                            <div class="stage-badge">BEFORE</div>
+                            <p class="stage-description">Original home before addition</p>
+                        </div>
+                    </div>
+                    
+                    <!-- During Construction Image -->
+                    <div class="transformation-stage" data-stage="during">
+                        <img src="before and after effetc/during.webp" alt="During Construction" loading="lazy">
+                        <div class="stage-overlay">
+                            <div class="stage-badge">DURING CONSTRUCTION</div>
+                            <p class="stage-description">Building your dream addition</p>
+                        </div>
+                    </div>
+                    
+                    <!-- After Image -->
+                    <div class="transformation-stage" data-stage="after">
+                        <img src="before and after effetc/after.webp" alt="After Addition" loading="lazy">
+                        <div class="stage-overlay">
+                            <div class="stage-badge">AFTER</div>
+                            <p class="stage-description">Beautiful finished addition</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
             <div style="text-align: center;">
                 <a href="#contact" class="cta-button">Start My Home Addition Today</a>
             </div>
         </div>
     </section>
+
+    <!-- Inline Script for Transformation Viewer - GUARANTEED -->
+    <script>
+    (function() {
+        function initTransformation() {
+            var btns = document.querySelectorAll('.stage-btn');
+            var stages = document.querySelectorAll('.transformation-stage');
+            
+            if (btns.length === 0 || stages.length === 0) {
+                setTimeout(initTransformation, 100);
+                return;
+            }
+            
+            var idx = 0;
+            var timer = null;
+            
+            function go(name) {
+                for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
+                for (var i = 0; i < stages.length; i++) stages[i].classList.remove('active');
+                
+                for (var i = 0; i < btns.length; i++) {
+                    if (btns[i].getAttribute('data-stage') === name) {
+                        btns[i].classList.add('active');
+                    }
+                }
+                for (var i = 0; i < stages.length; i++) {
+                    if (stages[i].getAttribute('data-stage') === name) {
+                        stages[i].classList.add('active');
+                    }
+                }
+            }
+            
+            function auto() {
+                var list = ['before', 'during', 'after'];
+                idx = (idx + 1) % list.length;
+                go(list[idx]);
+            }
+            
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].onclick = function(e) {
+                    e.preventDefault();
+                    var stage = this.getAttribute('data-stage');
+                    if (stage === 'before') idx = 0;
+                    if (stage === 'during') idx = 1;
+                    if (stage === 'after') idx = 2;
+                    go(stage);
+                    if (timer) clearInterval(timer);
+                    timer = setInterval(auto, 3000);
+                };
+            }
+            
+            timer = setInterval(auto, 3000);
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initTransformation);
+        } else {
+            initTransformation();
+        }
+    })();
+    </script>
+
+    <!-- Image Lazy Loading Optimization -->
+    <script>
+    (function() {
+        // Smooth fade-in for lazy loaded images
+        if ('IntersectionObserver' in window) {
+            var lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            var imageObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        var img = entry.target;
+                        img.addEventListener('load', function() {
+                            img.classList.add('loaded');
+                        });
+                        if (img.complete) {
+                            img.classList.add('loaded');
+                        }
+                    }
+                });
+            });
+            
+            lazyImages.forEach(function(img) {
+                imageObserver.observe(img);
+            });
+        } else {
+            // Fallback for browsers without IntersectionObserver
+            var lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            lazyImages.forEach(function(img) {
+                img.classList.add('loaded');
+            });
+        }
+    })();
+    </script>
 
     <!-- Remodeling vs Addition Section -->
     <section class="intro-section">
@@ -164,6 +288,56 @@
         </div>
     </section>
 
+    <!-- Build Journey Section - Visual Construction Timeline -->
+    <section class="build-journey-section" id="build-journey">
+        <div class="container">
+            <h2 class="section-title">Watch Your Addition <span style="color: var(--primary-color);">Come To Life</span></h2>
+            <p class="section-subtitle">From foundation to finish—see exactly how we build your dream space, step by step</p>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-image">
+                        <img src="addition photos/20250403_140244.webp" alt="Step 1: Foundation and Initial Framing" loading="eager" width="400" height="300">
+                        <span class="step-badge">1</span>
+                    </div>
+                    <h3>Foundation & First Walls</h3>
+                    <p>We begin with a solid foundation and start framing the walls. Your addition takes shape as the structure rises from the ground.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-image">
+                        <img src="steeps/step-2-framing.webp" alt="Step 2: Complete Framing Structure" loading="eager" width="400" height="300">
+                        <span class="step-badge">2</span>
+                    </div>
+                    <h3>Complete Framing</h3>
+                    <p>The full skeleton of your new space emerges. Walls, floor joists, and roof structure are built with precision craftsmanship.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-image">
+                        <img src="steeps/step-3-sheathing.webp" alt="Step 3: ZIP System Sheathing Installation" loading="eager" width="400" height="300">
+                        <span class="step-badge">3</span>
+                    </div>
+                    <h3>Sheathing & Weather Barrier</h3>
+                    <p>ZIP System sheathing provides superior moisture and air protection. Your addition is sealed tight against the elements.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-image">
+                        <img src="steeps/step-4-complete.webp" alt="Step 4: Completed Home Addition" loading="eager" width="400" height="300">
+                        <span class="step-badge">4</span>
+                    </div>
+                    <h3>Finished & Beautiful</h3>
+                    <p>Siding, roofing, windows, and landscaping complete the transformation. Your addition looks like it's always been part of your home.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#contact" class="cta-button">Start Your Home Addition Journey</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Before/After Gallery Section -->
     <section class="gallery-section">
         <div class="container">
@@ -172,47 +346,23 @@
             <p class="section-subtitle">Browse our Instagram-style gallery of real home additions</p>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <picture>
-                        <source 
-                            type="image/webp"
-                            srcset="addition photos/webp/1-thumb.webp 400w,
-                                    addition photos/webp/1-800w.webp 800w,
-                                    addition photos/webp/1.webp 1200w"
-                            sizes="(max-width: 640px) 100vw, (max-width: 968px) 50vw, 25vw">
-                        <img src="addition photos/1.jpg" alt="Home Addition Project 1" loading="lazy" width="400" height="280">
-                    </picture>
+                    <img src="images/IMG-20210825-WA0036.webp" alt="Home Addition Project 1" loading="eager" width="1311" height="705">
                     <div class="portfolio-overlay">
                         <h4>Custom Addition</h4>
-                        <p>Seamless integration</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <picture>
-                        <source 
-                            type="image/webp"
-                            srcset="addition photos/webp/2-thumb.webp 400w,
-                                    addition photos/webp/2-800w.webp 800w,
-                                    addition photos/webp/2.webp 1200w"
-                            sizes="(max-width: 640px) 100vw, (max-width: 968px) 50vw, 25vw">
-                        <img src="addition photos/2.jpg" alt="Home Addition Project 2" loading="lazy" width="400" height="280">
-                    </picture>
-                    <div class="portfolio-overlay">
-                        <h4>Room Expansion</h4>
                         <p>Quality craftsmanship</p>
                     </div>
                 </div>
 
                 <div class="portfolio-item">
-                    <picture>
-                        <source 
-                            type="image/webp"
-                            srcset="addition photos/webp/3-thumb.webp 400w,
-                                    addition photos/webp/3-800w.webp 800w,
-                                    addition photos/webp/3.webp 1200w"
-                            sizes="(max-width: 640px) 100vw, (max-width: 968px) 50vw, 25vw">
-                        <img src="addition photos/3.jpg" alt="Home Addition Project 3" loading="lazy" width="400" height="280">
-                    </picture>
+                    <img src="images/IMG-20210903-WA0047.webp" alt="Home Addition Project 2" loading="eager" width="1620" height="2048">
+                    <div class="portfolio-overlay">
+                        <h4>Room Expansion</h4>
+                        <p>Expert construction</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="images/IMG-20240220-WA0072.webp" alt="Home Addition Project 3" loading="eager" width="1500" height="2000">
                     <div class="portfolio-overlay">
                         <h4>Modern Addition</h4>
                         <p>Beautiful design</p>
@@ -220,182 +370,10 @@
                 </div>
 
                 <div class="portfolio-item">
-                    <img src="addition photos/20240122_150041.jpg" alt="Addition Construction" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h4>In Progress</h4>
-                        <p>Expert construction</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <img src="addition photos/20250403_140244.jpg" alt="Home Extension" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h4>Home Extension</h4>
-                        <p>Functional space</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <img src="addition photos/20250405_081552.jpg" alt="Addition Detail" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h4>Detail Work</h4>
-                        <p>Precision crafted</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <img src="addition photos/20250418_121017.jpg" alt="Custom Room" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h4>Custom Room</h4>
-                        <p>Tailored design</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <img src="addition photos/20250429_121406.jpg" alt="Finished Addition" loading="lazy">
+                    <img src="images/IMG-20240220-WA0073.webp" alt="Home Addition Project 4" loading="eager" width="1536" height="2048">
                     <div class="portfolio-overlay">
                         <h4>Finished Project</h4>
-                        <p>Ready to enjoy</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <img src="addition photos/20250503_122937.jpg" alt="Addition Interior" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h4>Interior Space</h4>
-                        <p>Light and airy</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <img src="addition photos/20250503_123003.jpg" alt="Room Addition" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h4>Room Addition</h4>
-                        <p>Seamless blend</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <img src="addition photos/IMG-20210825-WA0036.jpg" alt="Addition Exterior" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h4>Exterior View</h4>
-                        <p>Architectural harmony</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <img src="addition photos/IMG-20210903-WA0047.jpg" alt="Second Story" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h4>Second Story</h4>
-                        <p>Elevated living</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <img src="addition photos/IMG-20240209-WA0036.jpg" alt="Modern Addition" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h4>Modern Design</h4>
-                        <p>Contemporary style</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <picture>
-                        <!-- AVIF - Formato mais leve (85-90% de compressão) -->
-                        <source type="image/avif" 
-                                srcset="addition photos/avif/IMG-20240220-WA0072-thumb.avif 400w,
-                                        addition photos/avif/IMG-20240220-WA0072-800w.avif 800w,
-                                        addition photos/avif/IMG-20240220-WA0072-1200w.avif 1200w,
-                                        addition photos/avif/IMG-20240220-WA0072.avif 1920w"
-                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw">
-                        <!-- WebP - Fallback moderno -->
-                        <source type="image/webp" 
-                                srcset="addition photos/webp/IMG-20240220-WA0072-thumb.webp 400w,
-                                        addition photos/webp/IMG-20240220-WA0072-800w.webp 800w,
-                                        addition photos/webp/IMG-20240220-WA0072-1200w.webp 1200w,
-                                        addition photos/webp/IMG-20240220-WA0072.webp 1920w"
-                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw">
-                        <!-- JPG otimizado - Fallback universal -->
-                        <img src="addition photos/optimized/IMG-20240220-WA0072.jpg" 
-                             alt="Addition Details" 
-                             loading="lazy" 
-                             decoding="async"
-                             width="1500" 
-                             height="2000">
-                    </picture>
-                    <div class="portfolio-overlay">
-                        <h4>Fine Details</h4>
-                        <p>Expert finishing</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <picture>
-                        <source type="image/avif" 
-                                srcset="addition photos/avif/IMG-20240220-WA0073-thumb.avif 400w,
-                                        addition photos/avif/IMG-20240220-WA0073-800w.avif 800w,
-                                        addition photos/avif/IMG-20240220-WA0073-1200w.avif 1200w,
-                                        addition photos/avif/IMG-20240220-WA0073.avif 1920w"
-                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw">
-                        <source type="image/webp" 
-                                srcset="addition photos/webp/IMG-20240220-WA0073-thumb.webp 400w,
-                                        addition photos/webp/IMG-20240220-WA0073-800w.webp 800w,
-                                        addition photos/webp/IMG-20240220-WA0073-1200w.webp 1200w,
-                                        addition photos/webp/IMG-20240220-WA0073.webp 1920w"
-                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw">
-                        <img src="addition photos/optimized/IMG-20240220-WA0073.jpg" 
-                             alt="Custom Work" 
-                             loading="lazy" 
-                             decoding="async"
-                             width="1536" 
-                             height="2048">
-                    </picture>
-                    <div class="portfolio-overlay">
-                        <h4>Custom Features</h4>
-                        <p>Unique touches</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <picture>
-                        <source type="image/avif" 
-                                srcset="addition photos/avif/IMG-20250410-WA0042-thumb.avif 400w,
-                                        addition photos/avif/IMG-20250410-WA0042-800w.avif 800w,
-                                        addition photos/avif/IMG-20250410-WA0042-1200w.avif 1200w,
-                                        addition photos/avif/IMG-20250410-WA0042.avif 1920w"
-                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw">
-                        <source type="image/webp" 
-                                srcset="addition photos/webp/IMG-20250410-WA0042-thumb.webp 400w,
-                                        addition photos/webp/IMG-20250410-WA0042-800w.webp 800w,
-                                        addition photos/webp/IMG-20250410-WA0042-1200w.webp 1200w,
-                                        addition photos/webp/IMG-20250410-WA0042.webp 1920w"
-                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw">
-                        <img src="addition photos/optimized/IMG-20250410-WA0042.jpg" 
-                             alt="Completed Addition" 
-                             loading="lazy" 
-                             decoding="async"
-                             width="1599" 
-                             height="899">
-                    </picture>
-                    <div class="portfolio-overlay">
-                        <h4>Dream Space</h4>
-                        <p>Mission accomplished</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <img src="addition photos/76aeffaa-991b-4761-95be-5466648aeb45_20250423_165323.jpg" alt="Addition Project" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h4>Recent Project</h4>
-                        <p>Wolf quality</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <img src="addition photos/after 1.jpg" alt="After Addition" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h4>Transformation</h4>
-                        <p>Beautiful result</p>
+                        <p>Seamless integration</p>
                     </div>
                 </div>
             </div>
@@ -526,9 +504,9 @@
                     </div>
                 </div>
                 <div class="team-text">
-                    <span class="family-badge">🏡 Family-Owned Since 2000</span>
+                    <span class="family-badge">🏡 Family-Owned Since 2015</span>
                     <h2>Meet The <span style="color: var(--primary-color);">Wolf Family</span> Behind Your Dream Home Addition</h2>
-                    <p><strong>We're not just contractors—we're a family business.</strong> For over 25 years, Wolf has been transforming homes with the same care we'd give our own family's home.</p>
+                    <p><strong>We're not just contractors—we're a family business.</strong> For over 10 years, Wolf has been transforming homes with the same care we'd give our own family's home.</p>
                     <p>From a small family carpentry shop to a full team of addition specialists, every project is treated like family—because our clients become part of the Wolf family.</p>
                     <p><strong>When you choose Wolf, you get tradition, craftsmanship values, and personal commitment to excellence.</strong></p>
                     <p style="color: var(--primary-color); font-weight: 600; font-size: 1.15rem;">Your home addition deserves to be built by people who truly care.</p>
@@ -539,7 +517,7 @@
                             <div class="stat-label">Families Served</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number">25+</div>
+                            <div class="stat-number">10+</div>
                             <div class="stat-label">Years Family Business</div>
                         </div>
                         <div class="stat-item">
@@ -743,7 +721,7 @@
                         </div>
                         <div style="display: flex; align-items: center; gap: 15px;">
                             <span style="font-size: 1.5rem;">✓</span>
-                            <span style="font-size: 1.1rem;">25+ Years Experience</span>
+                            <span style="font-size: 1.1rem;">10+ Years Experience</span>
                         </div>
                     </div>
                 </div>
@@ -792,7 +770,7 @@
     </footer>
     
     <!-- Optimized JavaScript with defer - Minified -->
-    <script src="scripts.min.js" defer></script>
+    <script src="scripts.min.js?v=1768948217" defer></script>
     
     <!-- Webhook Handler - Updated -->
     <script src="webhook-handler.min.js?v=2"></script>
