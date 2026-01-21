@@ -12,7 +12,7 @@
     
     /**
      * Detecta a plataforma baseada na URL
-     * @returns {string} - "GOOGLE ADS" ou "META" ou "ORGANIC"
+     * @returns {string} - "GOOGLE" ou "META" ou "ORGANIC"
      */
     function detectPlatform() {
         const url = window.location.href.toLowerCase();
@@ -22,20 +22,11 @@
         const utmSource = params.get('utm_source')?.toLowerCase() || '';
         const utmMedium = params.get('utm_medium')?.toLowerCase() || '';
         
-        if (utmSource.includes('google') || utmMedium.includes('cpc') || utmMedium.includes('ppc')) {
-            return 'GOOGLE ADS';
+        if (utmSource.includes('google') || utmMedium.includes('cpc') || utmMedium.includes('ppc') || url.includes('google')) {
+            return 'GOOGLE';
         }
         
-        if (utmSource.includes('meta') || utmSource.includes('facebook') || utmSource.includes('instagram')) {
-            return 'META';
-        }
-        
-        // Verifica na URL
-        if (url.includes('google')) {
-            return 'GOOGLE ADS';
-        }
-        
-        if (url.includes('meta') || url.includes('facebook') || url.includes('instagram')) {
+        if (utmSource.includes('meta') || utmSource.includes('facebook') || utmSource.includes('instagram') || url.includes('meta') || url.includes('facebook') || url.includes('instagram')) {
             return 'META';
         }
         
@@ -43,28 +34,27 @@
     }
     
     /**
-     * Obtém o nome da fonte (página)
+     * Obtém o nome da fonte (URL completa da página)
      * @returns {string}
      */
-    function getSource() {
-        return document.title || 'Home Additions | Wolf Carpenters';
+    function getFonte() {
+        return window.location.href;
     }
     
     /**
-     * Formata data e hora atual
+     * Obtém o nome da página
      * @returns {string}
      */
-    function getCurrentDateTime() {
-        const now = new Date();
-        return now.toLocaleString('en-US', {
-            month: '2-digit',
-            day: '2-digit',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: true
-        });
+    function getPageName() {
+        return 'Home Additions | Wolf Carpenters';
+    }
+    
+    /**
+     * Obtém o nome da campanha
+     * @returns {string}
+     */
+    function getCampaignName() {
+        return 'Home Additions';
     }
     
     /**
@@ -127,24 +117,29 @@
         
         const additionTypeText = additionTypeLabels[additionType] || additionType;
         
+        const platform = detectPlatform();
+        
         // Monta objeto de dados para webhook
         const webhookData = {
-            NOME: name,
-            'E-MAIL': email,
-            TELEFONE: phone,
-            PERGUNTA: additionTypeText,
-            PLATAFORMA: detectPlatform(),
-            FONTE: getSource(),
-            QUANDO: getCurrentDateTime()
+            email: email || undefined,
+            phone: phone || undefined,
+            name: name || undefined,
+            campaign_name: getCampaignName(),
+            page_name: getPageName(),
+            FONTE: getFonte(),
+            PLATAFORMA: platform,
+            Qualified_question: additionTypeText || undefined
         };
+        
+        // Remove campos undefined para enviar apenas campos preenchidos
+        Object.keys(webhookData).forEach(key => 
+            webhookData[key] === undefined && delete webhookData[key]
+        );
         
         console.log('Sending to webhook:', webhookData);
         
         // Envia para webhook
         const result = await sendToWebhook(webhookData);
-        
-        // Envia para webhook e redireciona
-        await sendToWebhook(webhookData);
         
         // Redireciona para página de agradecimento
         window.location.href = 'thank-you.html';
