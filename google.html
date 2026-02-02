@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wolf Carpenters - Home Addition | Google</title>
     <script>
-        var baseUrl = window.location.origin;
-        window.location.href = baseUrl + '/?fonte=google&plataforma=GOOGLE';
+        // Salvar fonte e plataforma no sessionStorage e redirecionar
+        sessionStorage.setItem('fonte', 'google');
+        sessionStorage.setItem('plataforma', 'GOOGLE');
+        window.location.href = window.location.origin + '/';
     </script>
 </head>
 <body>
