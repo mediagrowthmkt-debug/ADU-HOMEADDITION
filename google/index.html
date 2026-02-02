@@ -5,16 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wolf Carpenters - Home Additions | Google</title>
     <script>
+        // Set tracking source
         sessionStorage.setItem('fonte', 'google');
         sessionStorage.setItem('plataforma', 'GOOGLE');
+        
+        // Fetch and inject main page content
+        fetch('../index.html')
+            .then(response => response.text())
+            .then(html => {
+                // Parse the HTML
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                
+                // Replace current document content
+                document.open();
+                document.write(html);
+                document.close();
+                
+                // Re-set tracking after page load
+                sessionStorage.setItem('fonte', 'google');
+                sessionStorage.setItem('plataforma', 'GOOGLE');
+            })
+            .catch(err => {
+                console.error('Error loading page:', err);
+                // Fallback: redirect but this shouldn't happen
+                window.location.href = '../index.html';
+            });
     </script>
-    <style>
-        * { margin: 0; padding: 0; }
-        html, body { width: 100%; height: 100%; overflow: hidden; }
-        iframe { width: 100%; height: 100%; border: none; }
-    </style>
 </head>
 <body>
-    <iframe src="../index.html" title="Wolf Carpenters - Home Additions"></iframe>
+    <p style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">Loading...</p>
 </body>
 </html>
