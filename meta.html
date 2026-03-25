@@ -50,6 +50,12 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Wolf Additions">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="0 - Brand Logo/brand-logo-wolfcarpenters.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="0 - Brand Logo/brand-logo-wolfcarpenters.png">
+    <link rel="shortcut icon" href="0 - Brand Logo/brand-logo-wolfcarpenters.png">
+    <link rel="apple-touch-icon" href="0 - Brand Logo/brand-logo-wolfcarpenters.png">
     
     <!-- DNS Prefetch & Preconnect - CDN -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -68,16 +74,222 @@
     <link rel="stylesheet" href="styles.min.css?v=1769023952">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"></noscript>
+
+    <style>
+        .typewriter-cursor {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 700;
+            animation: blink-cursor 0.7s step-end infinite;
+        }
+        @keyframes blink-cursor {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* === MOBILE MARQUEE TRANSFORMATION === */
+        .mobile-marquee-strip { display: none; }
+        @media (max-width: 768px) {
+            .mobile-marquee-strip {
+                display: block; width: 100%; overflow: hidden;
+                background: #111; padding: 0; margin-bottom: 0; position: relative;
+            }
+            .mobile-marquee-strip::before, .mobile-marquee-strip::after {
+                content: ''; position: absolute; top: 0; bottom: 0;
+                width: 40px; z-index: 2; pointer-events: none;
+            }
+            .mobile-marquee-strip::before { left: 0; background: linear-gradient(to right, #111, transparent); }
+            .mobile-marquee-strip::after  { right: 0; background: linear-gradient(to left, #111, transparent); }
+            .mobile-marquee-track {
+                display: flex; width: max-content;
+                animation: marquee-scroll 18s linear infinite;
+            }
+            .mobile-marquee-track:hover { animation-play-state: paused; }
+            .mobile-marquee-item {
+                flex-shrink: 0; width: 200px; margin-right: 10px;
+                position: relative; border-radius: 8px; overflow: hidden;
+            }
+            .mobile-marquee-item img { width: 100%; height: 150px; object-fit: cover; display: block; }
+            .mobile-marquee-label {
+                position: absolute; bottom: 0; left: 0; right: 0;
+                background: linear-gradient(transparent, rgba(0,0,0,0.85));
+                color: #fff; font-size: 0.65rem; font-weight: 700;
+                text-transform: uppercase; letter-spacing: 2px;
+                padding: 18px 8px 6px; text-align: center;
+            }
+            .mobile-marquee-label.label-before { border-bottom: 3px solid #e74c3c; }
+            .mobile-marquee-label.label-during { border-bottom: 3px solid #f39c12; }
+            .mobile-marquee-label.label-after  { border-bottom: 3px solid #2ecc71; }
+            .mobile-marquee-title {
+                text-align: center; color: #fff; font-size: 0.7rem;
+                font-weight: 700; text-transform: uppercase; letter-spacing: 3px;
+                padding: 10px 0 8px; background: #111;
+            }
+            .mobile-marquee-title span { color: var(--primary-color, #E1BA47); }
+            @keyframes marquee-scroll {
+                0%   { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+        }
+
+        /* === GARAGE CARD SLIDESHOW === */
+        .garage-slide-wrap {
+            position: relative; height: 170px; overflow: hidden;
+            border-radius: 8px 8px 0 0; margin: -40px -40px 24px -40px; background: #111;
+        }
+        .garage-slide-item { position: absolute; inset: 0; opacity: 0; transition: opacity 0.8s ease; }
+        .garage-slide-item.gs-active { opacity: 1; }
+        .garage-slide-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .gs-label {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: rgba(0,0,0,0.6); color: #fff; font-size: 0.62rem;
+            font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase;
+            text-align: center; padding: 5px 6px;
+        }
+        .gs-label.lb-before { border-bottom: 2px solid #e74c3c; }
+        .gs-label.lb-plan   { border-bottom: 2px solid #f39c12; }
+        .gs-label.lb-after  { border-bottom: 2px solid #2ecc71; }
+        .garage-slide-dots { position: absolute; top: 9px; right: 10px; display: flex; gap: 5px; z-index: 4; }
+        .garage-slide-dots span {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: rgba(255,255,255,0.4); display: block; transition: background 0.3s;
+        }
+        .garage-slide-dots span.gs-dot-active { background: var(--primary-color,#E1BA47); }
+
+        /* === HERO MARQUEE — desktop only === */
+        .hero-marquee-wrap { display: none; }
+        @media (min-width: 769px) {
+            .hero-marquee-wrap {
+                display: block; width: 100%; overflow: hidden;
+                margin: 26px 0 20px; position: relative; border-radius: 12px;
+            }
+            .hero-marquee-wrap::before, .hero-marquee-wrap::after {
+                content: ''; position: absolute; top: 0; bottom: 0;
+                width: 60px; z-index: 2; pointer-events: none;
+            }
+            .hero-marquee-wrap::before { left: 0; background: linear-gradient(to right, rgba(0,0,0,0.75), transparent); }
+            .hero-marquee-wrap::after  { right: 0; background: linear-gradient(to left, rgba(0,0,0,0.75), transparent); }
+            .hero-marquee-track { display: flex; width: max-content; animation: hero-marquee-anim 18s linear infinite; }
+            .hero-marquee-track:hover { animation-play-state: paused; }
+            .hero-marquee-item {
+                flex-shrink: 0; width: 220px; margin-right: 12px; position: relative;
+                border-radius: 10px; overflow: hidden;
+                border: 2px solid rgba(255,255,255,0.12); box-shadow: 0 4px 18px rgba(0,0,0,0.45);
+            }
+            .hero-marquee-item img { width: 100%; height: 155px; object-fit: cover; display: block; transition: transform 0.35s ease; }
+            .hero-marquee-item:hover img { transform: scale(1.06); }
+            .hero-marquee-label {
+                position: absolute; bottom: 0; left: 0; right: 0;
+                background: linear-gradient(transparent, rgba(0,0,0,0.88));
+                color: #fff; font-size: 0.62rem; font-weight: 700;
+                text-transform: uppercase; letter-spacing: 2.5px;
+                padding: 20px 8px 7px; text-align: center;
+            }
+            .hero-marquee-label.label-before { border-bottom: 3px solid #e74c3c; }
+            .hero-marquee-label.label-during { border-bottom: 3px solid #f39c12; }
+            .hero-marquee-label.label-after  { border-bottom: 3px solid #2ecc71; }
+            @keyframes hero-marquee-anim {
+                0%   { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+        }
+
+        /* === TRUST BADGES SECTION === */
+        .trust-badges-section {
+            background: #0d0d0d; padding: 48px 0 52px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .trust-label {
+            text-align: center; color: rgba(255,255,255,0.45); font-size: 0.72rem;
+            font-weight: 600; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 32px;
+        }
+        .trust-badges-grid {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            gap: 16px; max-width: 900px; margin: 0 auto;
+        }
+        .trust-badge-card {
+            display: flex; align-items: center; gap: 14px;
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 12px; padding: 18px 24px; min-width: 200px;
+            flex: 1 1 200px; max-width: 260px;
+            transition: background 0.25s, border-color 0.25s, transform 0.2s;
+        }
+        .trust-badge-card:hover {
+            background: rgba(225,186,71,0.07); border-color: rgba(225,186,71,0.35); transform: translateY(-3px);
+        }
+        .trust-badge-icon { font-size: 2rem; line-height: 1; flex-shrink: 0; }
+        .trust-badge-info { display: flex; flex-direction: column; }
+        .trust-badge-value {
+            color: var(--primary-color, #E1BA47); font-size: 1rem; font-weight: 800;
+            line-height: 1.2; font-family: 'Montserrat', sans-serif;
+        }
+        .trust-badge-desc { color: rgba(255,255,255,0.6); font-size: 0.78rem; font-weight: 400; margin-top: 2px; }
+        @media (max-width: 768px) {
+            .trust-badge-card { min-width: 140px; max-width: 47%; padding: 14px 16px; }
+            .trust-badge-icon { font-size: 1.6rem; }
+            .trust-badge-value { font-size: 0.9rem; }
+        }
+
+        /* === SCARCITY BADGES === */
+        .scarcity-tag {
+            display: inline-flex; align-items: center; gap: 6px; margin-top: 10px;
+            font-size: 0.78rem; font-weight: 700; color: #fff;
+            background: rgba(220, 53, 69, 0.15); border: 1px solid rgba(220, 53, 69, 0.5);
+            border-radius: 20px; padding: 5px 12px; letter-spacing: 0.3px;
+        }
+        .scarcity-tag::before { content: '⚡'; font-size: 0.82rem; }
+        .scarcity-tag strong { color: #ff6b6b; }
+        .scarcity-tag.dark {
+            color: #c0392b; background: rgba(220, 53, 69, 0.08); border-color: rgba(220, 53, 69, 0.3);
+        }
+        .scarcity-tag.dark strong { color: #c0392b; }
+        .scarcity-wrap { text-align: center; margin-top: 8px; }
+    </style>
 </head>
 <body>
+    <!-- Typewriter Effect Script -->
+    <script>
+    (function(){
+        var phrases = ['HOME ADDITION / ADU CONTRACTOR','HOME ADDITION / ADU COMPANY'];
+        var idx = 0, charIdx = 0, deleting = false;
+        function tick(){
+            var el = document.getElementById('typewriter-text');
+            if (!el) return;
+            var target = phrases[idx];
+            if (!deleting) {
+                el.textContent = target.slice(0, ++charIdx);
+                if (charIdx === target.length) { deleting = true; setTimeout(tick, 2600); return; }
+            } else {
+                el.textContent = target.slice(0, --charIdx);
+                if (charIdx === 0) { deleting = false; idx = (idx + 1) % phrases.length; }
+            }
+            setTimeout(tick, deleting ? 45 : 80);
+        }
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', tick);
+        else tick();
+    })();
+    </script>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="logo">
                 <img src="0 - Brand Logo/brand-logo-wolfcarpenters.webp" alt="Wolf Carpenters Logo" width="200" height="202">
             </div>
-            <a href="#contact-form" class="nav-cta">Get Free Estimate</a>
+            <a href="#contact-form" class="nav-cta">Claim Your Free Estimate →</a>
         </div>
+    </nav>
+
+    <!-- Hidden Sitelinks Nav for Google/Meta -->
+    <nav aria-label="Our Services" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
+        <a href="#room-addition">Room Additions</a>
+        <a href="#second-story-addition">Second Story Additions</a>
+        <a href="#garage-addition">Garage Additions</a>
+        <a href="#sunroom-addition">Sunrooms &amp; Patio Enclosures</a>
+        <a href="#transformations">Before &amp; After Gallery</a>
+        <a href="#build-journey">Our Build Process</a>
+        <a href="#contact-form">Get a Free Estimate</a>
     </nav>
 
     <!-- Hero Section -->
@@ -93,34 +305,27 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-text">
-                <p class="hero-tagline" style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px;">HOME ADDITION</p>
+                <p class="hero-tagline" style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px;"><span id="typewriter-text">HOME ADDITION / ADU CONTRACTOR</span><span class="typewriter-cursor">|</span></p>
                 <h1>Expand Your Home. <span class="highlight">Elevate Your Life</span></h1>
                 <p>Maybe your family is growing, your work setup has changed, or you're finally ready to create that extra space you've always dreamed of. We design and build custom home additions that feel like they've always been part of your house—seamless in function, style, and architecture.</p>
-                
-                <div class="hero-badges">
-                    <div class="badge">
-                        <span class="badge-icon">✓</span>
-                        <span class="badge-text">Licensed & Insured</span>
-                    </div>
-                    <div class="badge">
-                        <span class="badge-icon">✓</span>
-                        <span class="badge-text">10+ Years Experience</span>
-                    </div>
-                    <div class="badge">
-                        <span class="badge-icon">✓</span>
-                        <span class="badge-text">Seamless Integration</span>
-                    </div>
-                    <div class="badge">
-                        <span class="badge-icon">✓</span>
-                        <span class="badge-text">Turnkey Services</span>
+
+                <!-- Desktop Hero Marquee -->
+                <div class="hero-marquee-wrap">
+                    <div class="hero-marquee-track">
+                        <div class="hero-marquee-item"><img src="before and after effetc/before.webp" alt="Before Addition" loading="eager"><div class="hero-marquee-label label-before">Before</div></div>
+                        <div class="hero-marquee-item"><img src="before and after effetc/during.webp" alt="During Construction" loading="eager"><div class="hero-marquee-label label-during">During</div></div>
+                        <div class="hero-marquee-item"><img src="before and after effetc/after.webp" alt="After Addition" loading="eager"><div class="hero-marquee-label label-after">After</div></div>
+                        <div class="hero-marquee-item"><img src="before and after effetc/before.webp" alt="Before Addition" loading="eager"><div class="hero-marquee-label label-before">Before</div></div>
+                        <div class="hero-marquee-item"><img src="before and after effetc/during.webp" alt="During Construction" loading="eager"><div class="hero-marquee-label label-during">During</div></div>
+                        <div class="hero-marquee-item"><img src="before and after effetc/after.webp" alt="After Addition" loading="eager"><div class="hero-marquee-label label-after">After</div></div>
                     </div>
                 </div>
             </div>
             
             <!-- Hero Form -->
             <div class="hero-form-container">
-                <h3>Get Your Free Estimate</h3>
-                <p>Start your addition project today</p>
+                <h3>Claim Your Free Estimate</h3>
+                <p>April slots are going fast — secure yours today</p>
                 <form action="#" method="POST">
                     <div class="form-group">
                         <label for="name">Full Name *</label>
@@ -146,8 +351,11 @@
                             <option value="not-sure">Not Sure Yet</option>
                         </select>
                     </div>
-                    <button type="submit" class="submit-button">Get Free Consultation</button>
+                    <button type="submit" class="submit-button">Get Free Consultation →</button>
                 </form>
+                <div class="scarcity-wrap">
+                    <span class="scarcity-tag dark"><strong>Only 3 estimate slots left</strong> this month</span>
+                </div>
             </div>
         </div>
     </section>
@@ -156,6 +364,19 @@
     <a href="#contact-form" class="call-button-fixed" title="Get Free Estimate">
         📞
     </a>
+
+    <!-- Mobile Marquee Strip (mobile only) -->
+    <div class="mobile-marquee-strip">
+        <div class="mobile-marquee-title">OUR <span>TRANSFORMATIONS</span></div>
+        <div class="mobile-marquee-track">
+            <div class="mobile-marquee-item"><img src="before and after effetc/before.webp" alt="Before Addition" loading="lazy"><div class="mobile-marquee-label label-before">Before</div></div>
+            <div class="mobile-marquee-item"><img src="before and after effetc/during.webp" alt="During Construction" loading="lazy"><div class="mobile-marquee-label label-during">During</div></div>
+            <div class="mobile-marquee-item"><img src="before and after effetc/after.webp" alt="After Addition" loading="lazy"><div class="mobile-marquee-label label-after">After</div></div>
+            <div class="mobile-marquee-item"><img src="before and after effetc/before.webp" alt="Before Addition" loading="lazy"><div class="mobile-marquee-label label-before">Before</div></div>
+            <div class="mobile-marquee-item"><img src="before and after effetc/during.webp" alt="During Construction" loading="lazy"><div class="mobile-marquee-label label-during">During</div></div>
+            <div class="mobile-marquee-item"><img src="before and after effetc/after.webp" alt="After Addition" loading="lazy"><div class="mobile-marquee-label label-after">After</div></div>
+        </div>
+    </div>
 
     <!-- Before & After Section - INTEREST -->
     <section class="before-after-section" id="transformations">
@@ -323,6 +544,57 @@
         </div>
     </section>
 
+    <!-- Trust Badges Section -->
+    <section class="trust-badges-section">
+        <div class="container">
+            <p class="trust-label">Why Homeowners Choose Wolf Carpenters</p>
+            <div class="trust-badges-grid">
+                <div class="trust-badge-card">
+                    <div class="trust-badge-icon">🏅</div>
+                    <div class="trust-badge-info">
+                        <div class="trust-badge-value">Licensed & Insured</div>
+                        <div class="trust-badge-desc">Fully covered, every project</div>
+                    </div>
+                </div>
+                <div class="trust-badge-card">
+                    <div class="trust-badge-icon">📅</div>
+                    <div class="trust-badge-info">
+                        <div class="trust-badge-value">10+ Years</div>
+                        <div class="trust-badge-desc">Home addition experience</div>
+                    </div>
+                </div>
+                <div class="trust-badge-card">
+                    <div class="trust-badge-icon">🔗</div>
+                    <div class="trust-badge-info">
+                        <div class="trust-badge-value">Seamless Design</div>
+                        <div class="trust-badge-desc">Matches your existing home</div>
+                    </div>
+                </div>
+                <div class="trust-badge-card">
+                    <div class="trust-badge-icon">🔑</div>
+                    <div class="trust-badge-info">
+                        <div class="trust-badge-value">Turnkey Service</div>
+                        <div class="trust-badge-desc">Design to final walkthrough</div>
+                    </div>
+                </div>
+                <div class="trust-badge-card">
+                    <div class="trust-badge-icon">⭐</div>
+                    <div class="trust-badge-info">
+                        <div class="trust-badge-value">5-Star Reviews</div>
+                        <div class="trust-badge-desc">Hundreds of happy families</div>
+                    </div>
+                </div>
+                <div class="trust-badge-card">
+                    <div class="trust-badge-icon">🎁</div>
+                    <div class="trust-badge-info">
+                        <div class="trust-badge-value">Free Estimate</div>
+                        <div class="trust-badge-desc">No obligation, no pressure</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Build Journey Section - Visual Construction Timeline -->
     <section class="build-journey-section" id="build-journey">
         <div class="container">
@@ -422,8 +694,12 @@
             <p class="section-subtitle">Whatever your needs, we have the expertise to expand your home perfectly</p>
             
             <div class="types-grid">
-                <div class="type-card">
-                    <div class="type-icon">🛏️</div>
+                <div class="type-card" id="room-addition">
+                    <div class="garage-slide-wrap">
+                        <div class="garage-slide-item gs-active">
+                            <img src="fotos e videos/room addtion.png" alt="Room Addition" loading="lazy">
+                        </div>
+                    </div>
                     <h3>Room Additions</h3>
                     <p>All you need is a little more room—a bedroom for the baby on the way, a sun-filled family room, or a quiet home office that seamlessly integrates with your existing home.</p>
                     <ul class="type-features">
@@ -435,8 +711,24 @@
                     </ul>
                 </div>
 
-                <div class="type-card">
-                    <div class="type-icon">🏢</div>
+                <div class="type-card" id="second-story-addition">
+                    <div class="garage-slide-wrap" id="second-story-slide">
+                        <div class="garage-slide-item gs-active">
+                            <img src="fotos e videos/before-addition-story.webp" alt="Second Story Before" loading="lazy">
+                            <div class="gs-label lb-before">Before</div>
+                        </div>
+                        <div class="garage-slide-item">
+                            <img src="fotos e videos/second store plan.png" alt="Second Story Plan" loading="lazy">
+                            <div class="gs-label lb-plan">Plan</div>
+                        </div>
+                        <div class="garage-slide-item">
+                            <img src="fotos e videos/second store after.webp" alt="Second Story After" loading="lazy">
+                            <div class="gs-label lb-after">After</div>
+                        </div>
+                        <div class="garage-slide-dots">
+                            <span class="gs-dot-active"></span><span></span><span></span>
+                        </div>
+                    </div>
                     <h3>Second Story Additions</h3>
                     <p>Maximize your ground space limitations by building up. Boost your property value significantly while gaining the extra rooms your family needs.</p>
                     <ul class="type-features">
@@ -448,8 +740,24 @@
                     </ul>
                 </div>
 
-                <div class="type-card">
-                    <div class="type-icon">🚗</div>
+                <div class="type-card" id="garage-addition">
+                    <div class="garage-slide-wrap" id="garage-slide">
+                        <div class="garage-slide-item gs-active">
+                            <img src="garage-slide-before.webp" alt="Garage Before" loading="lazy">
+                            <div class="gs-label lb-before">Before</div>
+                        </div>
+                        <div class="garage-slide-item">
+                            <img src="garage-slide-plan.webp" alt="Garage Plan" loading="lazy">
+                            <div class="gs-label lb-plan">Plan</div>
+                        </div>
+                        <div class="garage-slide-item">
+                            <img src="garage-slide-after.webp" alt="Garage After" loading="lazy">
+                            <div class="gs-label lb-after">After</div>
+                        </div>
+                        <div class="garage-slide-dots">
+                            <span class="gs-dot-active"></span><span></span><span></span>
+                        </div>
+                    </div>
                     <h3>Garage Additions</h3>
                     <p>Protect your vehicles and add valuable storage space. Or convert into a rental unit, guest suite, or workshop—a cost-effective way to add functionality.</p>
                     <ul class="type-features">
@@ -461,8 +769,12 @@
                     </ul>
                 </div>
 
-                <div class="type-card">
-                    <div class="type-icon">☀️</div>
+                <div class="type-card" id="sunroom-addition">
+                    <div class="garage-slide-wrap">
+                        <div class="garage-slide-item gs-active">
+                            <img src="fotos e videos/sunroom.jpg" alt="Sunroom Addition" loading="lazy">
+                        </div>
+                    </div>
                     <h3>Sunrooms & Patio Enclosures</h3>
                     <p>There's something magical about natural light flooding your living space. Create a reading nook, breakfast space, or playroom that feels connected—not tacked on.</p>
                     <ul class="type-features">
@@ -698,7 +1010,7 @@
                     <div class="testimonial-rating">★★★★★</div>
                     <p class="testimonial-text">"From start to finish, Wolf Carpenters was extremely professional. Our second-story addition looks like it's always been there. The craftsmanship is outstanding, and they completed the project on time. Very pleased with sales, service, and production!"</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">MJ</div>
+                        <img class="testimonial-avatar" src="review 3.png" alt="Michael & Jennifer" style="width:52px;height:52px;border-radius:50%;object-fit:cover;">
                         <div class="testimonial-info">
                             <h4>Michael & Jennifer</h4>
                             <p>Second Story Addition</p>
@@ -710,7 +1022,7 @@
                     <div class="testimonial-rating">★★★★★</div>
                     <p class="testimonial-text">"We needed more space for our growing family, and Wolf Carpenters delivered exactly what we wanted. The master suite addition is beautiful, and the attention to detail is incredible. They matched our home's architecture perfectly!"</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">SR</div>
+                        <img class="testimonial-avatar" src="review 1.png" alt="Sarah Rodriguez" style="width:52px;height:52px;border-radius:50%;object-fit:cover;">
                         <div class="testimonial-info">
                             <h4>Sarah Rodriguez</h4>
                             <p>Master Suite Addition</p>
@@ -722,7 +1034,7 @@
                     <div class="testimonial-rating">★★★★★</div>
                     <p class="testimonial-text">"Outstanding communication throughout the entire process. They kept us informed every step of the way, and there were no surprises. Our sunroom is now our favorite room in the house. Highly recommend Wolf Carpenters!"</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">DK</div>
+                        <img class="testimonial-avatar" src="review 2.png" alt="David Kim" style="width:52px;height:52px;border-radius:50%;object-fit:cover;">
                         <div class="testimonial-info">
                             <h4>David Kim</h4>
                             <p>Sunroom Addition</p>
@@ -763,8 +1075,8 @@
 
                 <!-- Contact Form -->
                 <div class="hero-form-container" id="contact-form" style="margin: 0; scroll-margin-top: 120px;">
-                    <h3>Get Your Free Estimate</h3>
-                    <p>Start your addition project today</p>
+                    <h3>Claim Your Free Estimate</h3>
+                    <p>April slots are going fast — secure yours today</p>
                     <form action="#" method="POST">
                         <div class="form-group">
                             <label for="contact-name">Full Name *</label>
@@ -790,8 +1102,11 @@
                                 <option value="not-sure">Not Sure Yet</option>
                             </select>
                         </div>
-                        <button type="submit" class="submit-button">Get Free Consultation</button>
+                        <button type="submit" class="submit-button">Get Free Consultation →</button>
                     </form>
+                    <div class="scarcity-wrap">
+                        <span class="scarcity-tag dark"><strong>Only 3 estimate slots left</strong> this month</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -804,6 +1119,29 @@
         </div>
     </footer>
     
+    <!-- Slideshow Script for Type Cards -->
+    <script>
+    function initSlide(id) {
+        document.addEventListener('DOMContentLoaded', function() {
+            var wrap = document.getElementById(id);
+            if (!wrap) return;
+            var items = wrap.querySelectorAll('.garage-slide-item');
+            var dots = wrap.querySelectorAll('.garage-slide-dots span');
+            var cur = 0;
+            if (items.length < 2) return;
+            setInterval(function() {
+                items[cur].classList.remove('gs-active');
+                if (dots[cur]) dots[cur].classList.remove('gs-dot-active');
+                cur = (cur + 1) % items.length;
+                items[cur].classList.add('gs-active');
+                if (dots[cur]) dots[cur].classList.add('gs-dot-active');
+            }, 3000);
+        });
+    }
+    initSlide('garage-slide');
+    initSlide('second-story-slide');
+    </script>
+
     <!-- Optimized JavaScript with defer - Minified -->
     <script src="scripts.min.js?v=1768948217" defer></script>
     

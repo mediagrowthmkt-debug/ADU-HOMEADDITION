@@ -17,6 +17,15 @@
       gtag('config', 'AW-16525015107');
     </script>
 
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "w1bhsrq9sb");
+    </script>
+
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -50,6 +59,12 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Wolf Additions">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="0 - Brand Logo/brand-logo-wolfcarpenters.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="0 - Brand Logo/brand-logo-wolfcarpenters.png">
+    <link rel="shortcut icon" href="0 - Brand Logo/brand-logo-wolfcarpenters.png">
+    <link rel="apple-touch-icon" href="0 - Brand Logo/brand-logo-wolfcarpenters.png">
     
     <!-- DNS Prefetch & Preconnect - CDN -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -68,16 +83,568 @@
     <link rel="stylesheet" href="styles.min.css?v=1769023952">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"></noscript>
+
+    <style>
+        .typewriter-cursor {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 700;
+            animation: blink-cursor 0.7s step-end infinite;
+        }
+        @keyframes blink-cursor {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* === MOBILE MARQUEE TRANSFORMATION === */
+        .mobile-marquee-strip {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .mobile-marquee-strip {
+                display: block;
+                width: 100%;
+                overflow: hidden;
+                background: #111;
+                padding: 0;
+                margin-bottom: 0;
+                position: relative;
+            }
+            .mobile-marquee-strip::before,
+            .mobile-marquee-strip::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 40px;
+                z-index: 2;
+                pointer-events: none;
+            }
+            .mobile-marquee-strip::before {
+                left: 0;
+                background: linear-gradient(to right, #111, transparent);
+            }
+            .mobile-marquee-strip::after {
+                right: 0;
+                background: linear-gradient(to left, #111, transparent);
+            }
+            .mobile-marquee-track {
+                display: flex;
+                width: max-content;
+                animation: marquee-scroll 18s linear infinite;
+            }
+            .mobile-marquee-track:hover {
+                animation-play-state: paused;
+            }
+            .mobile-marquee-item {
+                flex-shrink: 0;
+                width: 200px;
+                margin-right: 10px;
+                position: relative;
+                border-radius: 8px;
+                overflow: hidden;
+            }
+            .mobile-marquee-item img {
+                width: 100%;
+                height: 150px;
+                object-fit: cover;
+                display: block;
+            }
+            .mobile-marquee-label {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(transparent, rgba(0,0,0,0.85));
+                color: #fff;
+                font-size: 0.65rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                padding: 18px 8px 6px;
+                text-align: center;
+            }
+            .mobile-marquee-label.label-before {
+                border-bottom: 3px solid #e74c3c;
+            }
+            .mobile-marquee-label.label-during {
+                border-bottom: 3px solid #f39c12;
+            }
+            .mobile-marquee-label.label-after {
+                border-bottom: 3px solid #2ecc71;
+            }
+            .mobile-marquee-title {
+                text-align: center;
+                color: #fff;
+                font-size: 0.7rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                padding: 10px 0 8px;
+                background: #111;
+            }
+            .mobile-marquee-title span {
+                color: var(--primary-color, #E1BA47);
+            }
+            @keyframes marquee-scroll {
+                0%   { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+        }
+
+        /* === DESKTOP VIDEO + MARQUEE SECTION === */
+        .transformation-video-section {
+            padding: 70px 0 50px;
+            background: #0a0a0a;
+        }
+        .transformation-video-section .section-title {
+            color: #fff;
+        }
+        .transformation-video-section .section-subtitle {
+            color: #aaa;
+        }
+        .video-wrapper {
+            position: relative;
+            max-width: 900px;
+            margin: 36px auto 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 48px rgba(0,0,0,0.6);
+            background: #000;
+        }
+        .transformation-vid {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-height: 520px;
+        }
+        .video-badge-overlay {
+            position: absolute;
+            bottom: 14px;
+            left: 14px;
+            display: flex;
+            gap: 8px;
+        }
+        .vid-badge {
+            background: rgba(0,0,0,0.7);
+            color: var(--primary-color, #E1BA47);
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            border: 1px solid var(--primary-color, #E1BA47);
+        }
+        .video-mute-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 10;
+            background: rgba(0,0,0,0.65);
+            border: 1.5px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s, border-color 0.2s;
+            backdrop-filter: blur(6px);
+        }
+        .video-mute-btn:hover {
+            background: rgba(0,0,0,0.9);
+            border-color: var(--primary-color, #E1BA47);
+            transform: scale(1.1);
+        }
+        .video-mute-btn svg {
+            width: 22px;
+            height: 22px;
+            fill: #fff;
+            display: block;
+        }
+        /* muted = mostra ícone de muted (riscado) */
+        .video-mute-btn .icon-sound  { display: block; }
+        .video-mute-btn .icon-muted  { display: none; }
+        .video-mute-btn.is-muted .icon-sound { display: none; }
+        .video-mute-btn.is-muted .icon-muted { display: block; }
+
+        /* Desktop marquee — removido da seção transformations */
+        .desktop-marquee-strip { display: none !important; }
+
+        /* === TEAM VIDEO === */
+        .team-video-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            background: #000;
+        }
+        .team-vid {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        .team-mute-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.4);
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, border-color 0.2s, transform 0.2s;
+            z-index: 10;
+            padding: 0;
+        }
+        .team-mute-btn:hover {
+            background: rgba(0,0,0,0.9);
+            border-color: var(--primary-color, #E1BA47);
+            transform: scale(1.1);
+        }
+        .team-mute-btn svg {
+            width: 22px;
+            height: 22px;
+            fill: #fff;
+            display: block;
+        }
+        .team-mute-btn .icon-sound  { display: block; }
+        .team-mute-btn .icon-muted  { display: none; }
+        .team-mute-btn.is-muted .icon-sound { display: none; }
+        .team-mute-btn.is-muted .icon-muted { display: block; }
+
+        @media (max-width: 768px) {
+            .team-vid { height: 220px; }
+        }
+
+        @media (max-width: 768px) {
+            .transformation-video-section { padding: 40px 0 30px; }
+            .video-wrapper {
+                max-width: 340px;
+                margin-left: auto;
+                margin-right: auto;
+                border-radius: 20px;
+            }
+            .transformation-vid {
+                width: 100%;
+                height: auto;
+                max-height: none;
+                aspect-ratio: 9 / 16;
+                object-fit: cover;
+                object-position: center;
+                border-radius: 18px;
+            }
+        }
+
+                /* === GARAGE CARD SLIDESHOW === */
+        .garage-slide-wrap {
+            position: relative;
+            height: 170px;
+            overflow: hidden;
+            border-radius: 8px 8px 0 0;
+            margin: -40px -40px 24px -40px;
+            background: #111;
+        }
+        .garage-slide-item {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        .garage-slide-item.gs-active { opacity: 1; }
+        .garage-slide-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .gs-label {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 5px 6px;
+        }
+        .gs-label.lb-before { border-bottom: 2px solid #e74c3c; }
+        .gs-label.lb-plan   { border-bottom: 2px solid #f39c12; }
+        .gs-label.lb-after  { border-bottom: 2px solid #2ecc71; }
+        .garage-slide-dots {
+            position: absolute;
+            top: 9px; right: 10px;
+            display: flex; gap: 5px; z-index: 4;
+        }
+        .garage-slide-dots span {
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            display: block;
+            transition: background 0.3s;
+        }
+        .garage-slide-dots span.gs-dot-active { background: var(--primary-color,#E1BA47); }
+
+        /* === HERO MARQUEE — desktop only, below paragraph === */
+        .hero-marquee-wrap {
+            display: none;
+        }
+        @media (min-width: 769px) {
+            .hero-marquee-wrap {
+                display: block;
+                width: 100%;
+                overflow: hidden;
+                margin: 26px 0 20px;
+                position: relative;
+                border-radius: 12px;
+            }
+            .hero-marquee-wrap::before,
+            .hero-marquee-wrap::after {
+                content: '';
+                position: absolute;
+                top: 0; bottom: 0;
+                width: 60px;
+                z-index: 2;
+                pointer-events: none;
+            }
+            .hero-marquee-wrap::before {
+                left: 0;
+                background: linear-gradient(to right, rgba(0,0,0,0.75), transparent);
+            }
+            .hero-marquee-wrap::after {
+                right: 0;
+                background: linear-gradient(to left, rgba(0,0,0,0.75), transparent);
+            }
+            .hero-marquee-track {
+                display: flex;
+                width: max-content;
+                animation: hero-marquee-anim 18s linear infinite;
+            }
+            .hero-marquee-track:hover { animation-play-state: paused; }
+            .hero-marquee-item {
+                flex-shrink: 0;
+                width: 220px;
+                margin-right: 12px;
+                position: relative;
+                border-radius: 10px;
+                overflow: hidden;
+                border: 2px solid rgba(255,255,255,0.12);
+                box-shadow: 0 4px 18px rgba(0,0,0,0.45);
+            }
+            .hero-marquee-item img {
+                width: 100%;
+                height: 155px;
+                object-fit: cover;
+                display: block;
+                transition: transform 0.35s ease;
+            }
+            .hero-marquee-item:hover img { transform: scale(1.06); }
+            .hero-marquee-label {
+                position: absolute;
+                bottom: 0; left: 0; right: 0;
+                background: linear-gradient(transparent, rgba(0,0,0,0.88));
+                color: #fff;
+                font-size: 0.62rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 2.5px;
+                padding: 20px 8px 7px;
+                text-align: center;
+            }
+            .hero-marquee-label.label-before { border-bottom: 3px solid #e74c3c; }
+            .hero-marquee-label.label-during  { border-bottom: 3px solid #f39c12; }
+            .hero-marquee-label.label-after   { border-bottom: 3px solid #2ecc71; }
+            @keyframes hero-marquee-anim {
+                0%   { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+        }
+
+        /* === TRUST BADGES SECTION === */
+        .trust-badges-section {
+            background: #0d0d0d;
+            padding: 48px 0 52px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .trust-label {
+            text-align: center;
+            color: rgba(255,255,255,0.45);
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 32px;
+        }
+        .trust-badges-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .trust-badge-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 12px;
+            padding: 18px 24px;
+            min-width: 200px;
+            flex: 1 1 200px;
+            max-width: 260px;
+            transition: background 0.25s, border-color 0.25s, transform 0.2s;
+        }
+        .trust-badge-card:hover {
+            background: rgba(225,186,71,0.07);
+            border-color: rgba(225,186,71,0.35);
+            transform: translateY(-3px);
+        }
+        .trust-badge-icon {
+            font-size: 2rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .trust-badge-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .trust-badge-value {
+            color: var(--primary-color, #E1BA47);
+            font-size: 1rem;
+            font-weight: 800;
+            line-height: 1.2;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .trust-badge-desc {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.78rem;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+        @media (max-width: 768px) {
+            .trust-badge-card { min-width: 140px; max-width: 47%; padding: 14px 16px; }
+            .trust-badge-icon { font-size: 1.6rem; }
+            .trust-badge-value { font-size: 0.9rem; }
+        }
+
+        /* === SCARCITY BADGES === */
+        .scarcity-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #fff;
+            background: rgba(220, 53, 69, 0.15);
+            border: 1px solid rgba(220, 53, 69, 0.5);
+            border-radius: 20px;
+            padding: 5px 12px;
+            letter-spacing: 0.3px;
+        }
+        .scarcity-tag::before {
+            content: '⚡';
+            font-size: 0.82rem;
+        }
+        .scarcity-tag strong {
+            color: #ff6b6b;
+        }
+        /* versão dark (para usar dentro de form branco) */
+        .scarcity-tag.dark {
+            color: #c0392b;
+            background: rgba(220, 53, 69, 0.08);
+            border-color: rgba(220, 53, 69, 0.3);
+        }
+        .scarcity-tag.dark strong {
+            color: #c0392b;
+        }
+        .scarcity-wrap {
+            text-align: center;
+            margin-top: 8px;
+        }
+    </style>
 </head>
 <body>
+
+    <script>
+    (function() {
+        var phrases = [
+            "HOME ADDITION / ADU CONTRACTOR",
+            "HOME ADDITION / ADU COMPANY"
+        ];
+        var el, idx = 0, charIdx = 0, deleting = false;
+        var typeSpeed = 80, deleteSpeed = 45, pauseAfterType = 1800, pauseAfterDelete = 400;
+
+        function type() {
+            el = el || document.getElementById('typewriter-text');
+            if (!el) { setTimeout(type, 100); return; }
+
+            var current = phrases[idx];
+
+            if (!deleting) {
+                el.textContent = current.substring(0, charIdx + 1);
+                charIdx++;
+                if (charIdx === current.length) {
+                    deleting = true;
+                    setTimeout(type, pauseAfterType);
+                } else {
+                    setTimeout(type, typeSpeed);
+                }
+            } else {
+                el.textContent = current.substring(0, charIdx - 1);
+                charIdx--;
+                if (charIdx === 0) {
+                    deleting = false;
+                    idx = (idx + 1) % phrases.length;
+                    setTimeout(type, pauseAfterDelete);
+                } else {
+                    setTimeout(type, deleteSpeed);
+                }
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', type);
+        } else {
+            type();
+        }
+    })();
+    </script>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="logo">
                 <img src="0 - Brand Logo/brand-logo-wolfcarpenters.webp" alt="Wolf Carpenters Logo" width="200" height="202">
             </div>
-            <a href="#contact-form" class="nav-cta">Get Free Estimate</a>
+            <a href="#contact-form" class="nav-cta">Claim Your Free Estimate →</a>
         </div>
+    </nav>
+
+    <!-- Sitelinks Navigation — indexado pelo Google como âncoras de serviço -->
+    <nav aria-label="Our Services" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
+        <a href="#room-addition">Room Additions</a>
+        <a href="#second-story-addition">Second Story Additions</a>
+        <a href="#garage-addition">Garage Additions</a>
+        <a href="#sunroom-addition">Sunrooms &amp; Patio Enclosures</a>
+        <a href="#build-journey">Our Build Process</a>
+        <a href="#team">Meet the Team</a>
+        <a href="#contact">Get Free Estimate</a>
     </nav>
 
     <!-- Hero Section -->
@@ -93,34 +660,47 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-text">
-                <p class="hero-tagline" style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px;">HOME ADDITION</p>
+                <p class="hero-tagline" style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px;"><span id="typewriter-text"></span><span class="typewriter-cursor">|</span></p>
                 <h1>Expand Your Home. <span class="highlight">Elevate Your Life</span></h1>
                 <p>Maybe your family is growing, your work setup has changed, or you're finally ready to create that extra space you've always dreamed of. We design and build custom home additions that feel like they've always been part of your house—seamless in function, style, and architecture.</p>
-                
-                <div class="hero-badges">
-                    <div class="badge">
-                        <span class="badge-icon">✓</span>
-                        <span class="badge-text">Licensed & Insured</span>
-                    </div>
-                    <div class="badge">
-                        <span class="badge-icon">✓</span>
-                        <span class="badge-text">10+ Years Experience</span>
-                    </div>
-                    <div class="badge">
-                        <span class="badge-icon">✓</span>
-                        <span class="badge-text">Seamless Integration</span>
-                    </div>
-                    <div class="badge">
-                        <span class="badge-icon">✓</span>
-                        <span class="badge-text">Turnkey Services</span>
+
+                <!-- Hero Marquee — Desktop only -->
+                <div class="hero-marquee-wrap">
+                    <div class="hero-marquee-track">
+                        <div class="hero-marquee-item">
+                            <img src="before and after effetc/before.webp" alt="Before Addition" loading="lazy">
+                            <div class="hero-marquee-label label-before">Before</div>
+                        </div>
+                        <div class="hero-marquee-item">
+                            <img src="before and after effetc/during.webp" alt="During Construction" loading="lazy">
+                            <div class="hero-marquee-label label-during">During</div>
+                        </div>
+                        <div class="hero-marquee-item">
+                            <img src="before and after effetc/after.webp" alt="After Addition" loading="lazy">
+                            <div class="hero-marquee-label label-after">After</div>
+                        </div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="hero-marquee-item">
+                            <img src="before and after effetc/before.webp" alt="Before Addition" loading="lazy">
+                            <div class="hero-marquee-label label-before">Before</div>
+                        </div>
+                        <div class="hero-marquee-item">
+                            <img src="before and after effetc/during.webp" alt="During Construction" loading="lazy">
+                            <div class="hero-marquee-label label-during">During</div>
+                        </div>
+                        <div class="hero-marquee-item">
+                            <img src="before and after effetc/after.webp" alt="After Addition" loading="lazy">
+                            <div class="hero-marquee-label label-after">After</div>
+                        </div>
                     </div>
                 </div>
+
             </div>
-            
+
             <!-- Hero Form -->
             <div class="hero-form-container">
-                <h3>Get Your Free Estimate</h3>
-                <p>Start your addition project today</p>
+                <h3>Claim Your Free Estimate</h3>
+                <p>April slots are going fast — secure yours today</p>
                 <form action="#" method="POST">
                     <div class="form-group">
                         <label for="name">Full Name *</label>
@@ -146,8 +726,11 @@
                             <option value="not-sure">Not Sure Yet</option>
                         </select>
                     </div>
-                    <button type="submit" class="submit-button">Get Free Consultation</button>
+                    <button type="submit" class="submit-button">Get Free Consultation →</button>
                 </form>
+                <div class="scarcity-wrap">
+                    <span class="scarcity-tag dark">Only <strong>4 project slots</strong> open for April — Spring is filling fast</span>
+                </div>
             </div>
         </div>
     </section>
@@ -157,122 +740,245 @@
         📞
     </a>
 
-    <!-- Before & After Section - INTEREST -->
-    <section class="before-after-section" id="transformations">
+    <!-- Mobile Marquee Transformation Strip (mobile only, after hero) -->
+    <div class="mobile-marquee-strip">
+        <div class="mobile-marquee-title">See The <span>Transformation</span></div>
+        <div class="mobile-marquee-track">
+            <div class="mobile-marquee-item">
+                <img src="before and after effetc/before.webp" alt="Before Addition" loading="lazy">
+                <div class="mobile-marquee-label label-before">Before</div>
+            </div>
+            <div class="mobile-marquee-item">
+                <img src="before and after effetc/during.webp" alt="During Construction" loading="lazy">
+                <div class="mobile-marquee-label label-during">During</div>
+            </div>
+            <div class="mobile-marquee-item">
+                <img src="before and after effetc/after.webp" alt="After Addition" loading="lazy">
+                <div class="mobile-marquee-label label-after">After</div>
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="mobile-marquee-item">
+                <img src="before and after effetc/before.webp" alt="Before Addition" loading="lazy">
+                <div class="mobile-marquee-label label-before">Before</div>
+            </div>
+            <div class="mobile-marquee-item">
+                <img src="before and after effetc/during.webp" alt="During Construction" loading="lazy">
+                <div class="mobile-marquee-label label-during">During</div>
+            </div>
+            <div class="mobile-marquee-item">
+                <img src="before and after effetc/after.webp" alt="After Addition" loading="lazy">
+                <div class="mobile-marquee-label label-after">After</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transformation Video Section -->
+    <section class="transformation-video-section" id="transformations">
         <div class="container">
             <h2 class="section-title">See The <span style="color: var(--primary-color);">Transformation</span></h2>
-            <p class="section-subtitle">Click the buttons to see the complete journey: Before, During Construction, and After</p>
-            
-            <!-- Stage Selector Buttons -->
-            <div class="stage-selector">
-                <button class="stage-btn active" data-stage="before">
-                    <span class="stage-number">1</span>
-                    <span class="stage-label">BEFORE</span>
-                </button>
-                <button class="stage-btn" data-stage="during">
-                    <span class="stage-number">2</span>
-                    <span class="stage-label">DURING</span>
-                </button>
-                <button class="stage-btn" data-stage="after">
-                    <span class="stage-number">3</span>
-                    <span class="stage-label">AFTER</span>
+            <p class="section-subtitle">Watch the complete journey of a real home addition — Before, During Construction, and After</p>
+
+            <div class="video-wrapper">
+                <!-- Desktop: 720p MP4 | Mobile: 480p MP4 via <source media> trick with JS -->
+                <video
+                    id="transformation-video"
+                    class="transformation-vid"
+                    autoplay
+                    loop
+                    playsinline
+                    preload="none"
+                    poster="before and after effetc/after.webp"
+                    aria-label="Home addition transformation video"
+                >
+                    <!-- Browser picks first matching source -->
+                    <source src="home-addition-desktop.mp4" type="video/mp4" media="(min-width: 769px)">
+                    <source src="home-addition-mobile.mp4" type="video/mp4">
+                </video>
+                <div class="video-badge-overlay">
+                    <span class="vid-badge">REAL PROJECT</span>
+                    <span class="vid-badge">WOLF CARPENTERS</span>
+                </div>
+
+                <!-- Mute / Unmute Button -->
+                <button class="video-mute-btn is-muted" id="vid-mute-btn" aria-label="Unmute video" title="Click to unmute">
+                    <!-- Som ativo (aparece quando NÃO está muted) -->
+                    <svg class="icon-sound" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77 0-4.28-2.99-7.86-7-8.77z"/>
+                    </svg>
+                    <!-- Muted/riscado (aparece quando está muted — estado inicial) -->
+                    <svg class="icon-muted" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.5 12A4.5 4.5 0 0 0 14 7.97v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51A8.796 8.796 0 0 0 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06A8.99 8.99 0 0 0 17.73 18l2 2L21 18.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+                    </svg>
                 </button>
             </div>
 
-            <div class="comparison-container">
-                <div class="transformation-viewer">
-                    <!-- Before Image -->
-                    <div class="transformation-stage active" data-stage="before">
-                        <img src="before and after effetc/before.webp" alt="Before Addition" loading="eager" width="1920" height="2560">
-                        <div class="stage-overlay">
-                            <div class="stage-badge">BEFORE</div>
-                            <p class="stage-description">Original home before addition</p>
-                        </div>
-                    </div>
-                    
-                    <!-- During Construction Image -->
-                    <div class="transformation-stage" data-stage="during">
-                        <img src="before and after effetc/during.webp" alt="During Construction" loading="lazy">
-                        <div class="stage-overlay">
-                            <div class="stage-badge">DURING CONSTRUCTION</div>
-                            <p class="stage-description">Building your dream addition</p>
-                        </div>
-                    </div>
-                    
-                    <!-- After Image -->
-                    <div class="transformation-stage" data-stage="after">
-                        <img src="before and after effetc/after.webp" alt="After Addition" loading="lazy">
-                        <div class="stage-overlay">
-                            <div class="stage-badge">AFTER</div>
-                            <p class="stage-description">Beautiful finished addition</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center;">
-                <a href="#contact" class="cta-button">Start My Home Addition Today</a>
+            <div style="text-align: center; margin-top: 32px;">
+                <a href="#contact" class="cta-button">Start My Home Addition Today →</a>
             </div>
         </div>
     </section>
 
-    <!-- Inline Script for Transformation Viewer - GUARANTEED -->
+    <!-- Video Lazy Load + autoplay muted + botão unmute -->
     <script>
     (function() {
-        function initTransformation() {
-            var btns = document.querySelectorAll('.stage-btn');
-            var stages = document.querySelectorAll('.transformation-stage');
-            
-            if (btns.length === 0 || stages.length === 0) {
-                setTimeout(initTransformation, 100);
-                return;
-            }
-            
-            var idx = 0;
-            var timer = null;
-            
-            function go(name) {
-                for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
-                for (var i = 0; i < stages.length; i++) stages[i].classList.remove('active');
-                
-                for (var i = 0; i < btns.length; i++) {
-                    if (btns[i].getAttribute('data-stage') === name) {
-                        btns[i].classList.add('active');
-                    }
-                }
-                for (var i = 0; i < stages.length; i++) {
-                    if (stages[i].getAttribute('data-stage') === name) {
-                        stages[i].classList.add('active');
-                    }
+        function initVideo() {
+            var vid = document.getElementById('transformation-video');
+            var btn = document.getElementById('vid-mute-btn');
+            if (!vid) return;
+
+            var isMobile = window.innerWidth <= 768;
+            var src = isMobile ? 'home-addition-mobile.mp4' : 'home-addition-desktop.mp4';
+            var loaded = false;
+
+            function updateBtn() {
+                if (!btn) return;
+                if (vid.muted) {
+                    btn.classList.add('is-muted');
+                    btn.setAttribute('aria-label', 'Unmute video');
+                    btn.setAttribute('title', 'Click to unmute');
+                } else {
+                    btn.classList.remove('is-muted');
+                    btn.setAttribute('aria-label', 'Mute video');
+                    btn.setAttribute('title', 'Click to mute');
                 }
             }
-            
-            function auto() {
-                var list = ['before', 'during', 'after'];
-                idx = (idx + 1) % list.length;
-                go(list[idx]);
+
+            function loadAndPlay() {
+                if (loaded) return;
+                loaded = true;
+                vid.src = src;
+                vid.muted = true;
+                vid.load();
+                vid.play().catch(function(){});
+                updateBtn();
             }
-            
-            for (var i = 0; i < btns.length; i++) {
-                btns[i].onclick = function(e) {
-                    e.preventDefault();
-                    var stage = this.getAttribute('data-stage');
-                    if (stage === 'before') idx = 0;
-                    if (stage === 'during') idx = 1;
-                    if (stage === 'after') idx = 2;
-                    go(stage);
-                    if (timer) clearInterval(timer);
-                    timer = setInterval(auto, 3000);
-                };
+
+            // Toggle mute ao clicar no botão
+            if (btn) {
+                btn.addEventListener('click', function() {
+                    // Se ainda não carregou, força carregar ao clicar
+                    if (!loaded) loadAndPlay();
+                    vid.muted = !vid.muted;
+                    updateBtn();
+                    // Garante que o vídeo está tocando
+                    if (!vid.paused) return;
+                    vid.play().catch(function(){});
+                });
             }
-            
-            timer = setInterval(auto, 3000);
+
+            if ('IntersectionObserver' in window) {
+                var observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadAndPlay();
+                        observer.disconnect();
+                    }
+                }, { threshold: 0.25 });
+                observer.observe(vid);
+            } else {
+                loadAndPlay();
+            }
         }
-        
+
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initTransformation);
+            document.addEventListener('DOMContentLoaded', initVideo);
         } else {
-            initTransformation();
+            initVideo();
+        }
+    })();
+    </script>
+
+        <!-- Garage Slideshow -->
+    <script>
+    (function(){
+        function initSlide(id){
+            var w=document.getElementById(id);
+            if(!w)return;
+            var slides=w.querySelectorAll('.garage-slide-item');
+            var dots=w.querySelectorAll('.garage-slide-dots span');
+            if(!slides.length)return;
+            var i=0;
+            setInterval(function(){
+                slides[i].classList.remove('gs-active');
+                dots[i].classList.remove('gs-dot-active');
+                i=(i+1)%slides.length;
+                slides[i].classList.add('gs-active');
+                dots[i].classList.add('gs-dot-active');
+            },3000);
+        }
+        function initGarageSlide(){
+            initSlide('garage-slide');
+            initSlide('second-story-slide');
+        }
+        if(document.readyState==='loading'){
+            document.addEventListener('DOMContentLoaded', initGarageSlide);
+        } else {
+            initGarageSlide();
+        }
+    })();
+    </script>
+
+    <!-- Team Video Lazy Load + mute toggle -->
+    <script>
+    (function() {
+        function initTeamVideo() {
+            var vid = document.getElementById('team-video');
+            var btn = document.getElementById('team-mute-btn');
+            if (!vid) return;
+
+            var isMobile = window.innerWidth <= 768;
+            var src = isMobile ? 'team-mobile.mp4' : 'team-desktop.mp4';
+            var loaded = false;
+
+            function updateBtn() {
+                if (!btn) return;
+                if (vid.muted) {
+                    btn.classList.add('is-muted');
+                    btn.setAttribute('aria-label', 'Unmute video');
+                    btn.setAttribute('title', 'Click to unmute');
+                } else {
+                    btn.classList.remove('is-muted');
+                    btn.setAttribute('aria-label', 'Mute video');
+                    btn.setAttribute('title', 'Click to mute');
+                }
+            }
+
+            function loadAndPlay() {
+                if (loaded) return;
+                loaded = true;
+                vid.src = src;
+                vid.muted = true;
+                vid.load();
+                vid.play().catch(function(){});
+                updateBtn();
+            }
+
+            if (btn) {
+                btn.addEventListener('click', function() {
+                    if (!loaded) loadAndPlay();
+                    vid.muted = !vid.muted;
+                    updateBtn();
+                    if (!vid.paused) return;
+                    vid.play().catch(function(){});
+                });
+            }
+
+            if ('IntersectionObserver' in window) {
+                var observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadAndPlay();
+                        observer.disconnect();
+                    }
+                }, { threshold: 0.25 });
+                observer.observe(vid);
+            } else {
+                loadAndPlay();
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initTeamVideo);
+        } else {
+            initTeamVideo();
         }
     })();
     </script>
@@ -323,9 +1029,59 @@
         </div>
     </section>
 
-    <!-- Build Journey Section - Visual Construction Timeline -->
-    <section class="build-journey-section" id="build-journey">
+    <!-- Trust Badges Section -->
+    <section class="trust-badges-section">
         <div class="container">
+            <p class="trust-label">Why homeowners trust Wolf Carpenters</p>
+            <div class="trust-badges-grid">
+                <div class="trust-badge-card">
+                    <div class="trust-badge-icon">🏅</div>
+                    <div class="trust-badge-info">
+                        <span class="trust-badge-value">Licensed</span>
+                        <span class="trust-badge-desc">& Fully Insured</span>
+                    </div>
+                </div>
+                <div class="trust-badge-card">
+                    <div class="trust-badge-icon">📅</div>
+                    <div class="trust-badge-info">
+                        <span class="trust-badge-value">10+ Years</span>
+                        <span class="trust-badge-desc">of Experience</span>
+                    </div>
+                </div>
+                <div class="trust-badge-card">
+                    <div class="trust-badge-icon">🏠</div>
+                    <div class="trust-badge-info">
+                        <span class="trust-badge-value">Seamless</span>
+                        <span class="trust-badge-desc">Home Integration</span>
+                    </div>
+                </div>
+                <div class="trust-badge-card">
+                    <div class="trust-badge-icon">🔑</div>
+                    <div class="trust-badge-info">
+                        <span class="trust-badge-value">Turnkey</span>
+                        <span class="trust-badge-desc">Full Service</span>
+                    </div>
+                </div>
+                <div class="trust-badge-card">
+                    <div class="trust-badge-icon">⭐</div>
+                    <div class="trust-badge-info">
+                        <span class="trust-badge-value">5-Star</span>
+                        <span class="trust-badge-desc">Rated by Clients</span>
+                    </div>
+                </div>
+                <div class="trust-badge-card">
+                    <div class="trust-badge-icon">📋</div>
+                    <div class="trust-badge-info">
+                        <span class="trust-badge-value">Free</span>
+                        <span class="trust-badge-desc">Detailed Estimate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Build Journey Section - Visual Construction Timeline -->
+    <section class="build-journey-section" id="build-journey">        <div class="container">
             <h2 class="section-title">Watch Your Addition <span style="color: var(--primary-color);">Come To Life</span></h2>
             <p class="section-subtitle">From foundation to finish—see exactly how we build your dream space, step by step</p>
             
@@ -368,7 +1124,7 @@
             </div>
             
             <div style="text-align: center; margin-top: 40px;">
-                <a href="#contact" class="cta-button">Start Your Home Addition Journey</a>
+                <a href="#contact" class="cta-button">Start Your Home Addition Journey →</a>
             </div>
         </div>
     </section>
@@ -422,8 +1178,12 @@
             <p class="section-subtitle">Whatever your needs, we have the expertise to expand your home perfectly</p>
             
             <div class="types-grid">
-                <div class="type-card">
-                    <div class="type-icon">🛏️</div>
+                <div class="type-card" id="room-addition">
+                    <div class="garage-slide-wrap">
+                        <div class="garage-slide-item gs-active">
+                            <img src="fotos e videos/room addtion.png" alt="Room Addition">
+                        </div>
+                    </div>
                     <h3>Room Additions</h3>
                     <p>All you need is a little more room—a bedroom for the baby on the way, a sun-filled family room, or a quiet home office that seamlessly integrates with your existing home.</p>
                     <ul class="type-features">
@@ -435,8 +1195,26 @@
                     </ul>
                 </div>
 
-                <div class="type-card">
-                    <div class="type-icon">🏢</div>
+                <div class="type-card" id="second-story-addition">
+                    <div class="garage-slide-wrap" id="second-story-slide">
+                        <div class="garage-slide-item gs-active">
+                            <img src="fotos e videos/before-addition-story.webp" alt="Second story before">
+                            <span class="gs-label lb-before">Before</span>
+                        </div>
+                        <div class="garage-slide-item">
+                            <img src="fotos e videos/second store plan.png" alt="Second story planning">
+                            <span class="gs-label lb-plan">Planning</span>
+                        </div>
+                        <div class="garage-slide-item">
+                            <img src="fotos e videos/second store after.webp" alt="Second story done">
+                            <span class="gs-label lb-after">Done ✓</span>
+                        </div>
+                        <div class="garage-slide-dots">
+                            <span class="gs-dot-active"></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
                     <h3>Second Story Additions</h3>
                     <p>Maximize your ground space limitations by building up. Boost your property value significantly while gaining the extra rooms your family needs.</p>
                     <ul class="type-features">
@@ -448,8 +1226,26 @@
                     </ul>
                 </div>
 
-                <div class="type-card">
-                    <div class="type-icon">🚗</div>
+                <div class="type-card" id="garage-addition">
+                    <div class="garage-slide-wrap" id="garage-slide">
+                        <div class="garage-slide-item gs-active">
+                            <img src="garage-slide-before.webp" alt="Garage before">
+                            <span class="gs-label lb-before">Before</span>
+                        </div>
+                        <div class="garage-slide-item">
+                            <img src="garage-slide-plan.webp" alt="Garage planning">
+                            <span class="gs-label lb-plan">Planning</span>
+                        </div>
+                        <div class="garage-slide-item">
+                            <img src="garage-slide-after.webp" alt="Garage done">
+                            <span class="gs-label lb-after">Done ✓</span>
+                        </div>
+                        <div class="garage-slide-dots">
+                            <span class="gs-dot-active"></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
                     <h3>Garage Additions</h3>
                     <p>Protect your vehicles and add valuable storage space. Or convert into a rental unit, guest suite, or workshop—a cost-effective way to add functionality.</p>
                     <ul class="type-features">
@@ -461,8 +1257,12 @@
                     </ul>
                 </div>
 
-                <div class="type-card">
-                    <div class="type-icon">☀️</div>
+                <div class="type-card" id="sunroom-addition">
+                    <div class="garage-slide-wrap">
+                        <div class="garage-slide-item gs-active">
+                            <img src="fotos e videos/sunroom.jpg" alt="Sunroom & Patio Enclosure">
+                        </div>
+                    </div>
                     <h3>Sunrooms & Patio Enclosures</h3>
                     <p>There's something magical about natural light flooding your living space. Create a reading nook, breakfast space, or playroom that feels connected—not tacked on.</p>
                     <ul class="type-features">
@@ -529,7 +1329,31 @@
             <div class="team-content fade-in">
                 <div class="team-images">
                     <div class="team-image-main">
-                        <img src="6 - Meet the Team - Wolf Carpenters Crew/team-group-in-warehouse.webp" alt="Wolf Carpenters Home Addition Team">
+                        <div class="team-video-wrapper">
+                            <video
+                                id="team-video"
+                                class="team-vid"
+                                autoplay
+                                loop
+                                playsinline
+                                preload="none"
+                                poster="6 - Meet the Team - Wolf Carpenters Crew/team-group-in-warehouse.webp"
+                                aria-label="Wolf Carpenters team institutional video"
+                            >
+                                <source src="team-desktop.mp4" type="video/mp4" media="(min-width: 769px)">
+                                <source src="team-mobile.mp4" type="video/mp4">
+                            </video>
+                            <button class="team-mute-btn is-muted" id="team-mute-btn" aria-label="Unmute video" title="Click to unmute">
+                                <!-- Som ativo (aparece quando NÃO está muted) -->
+                                <svg class="icon-sound" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77 0-4.28-2.99-7.86-7-8.77z"/>
+                                </svg>
+                                <!-- Muted/riscado (aparece quando está muted — estado inicial) -->
+                                <svg class="icon-muted" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.5 12A4.5 4.5 0 0 0 14 7.97v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51A8.796 8.796 0 0 0 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06A8.99 8.99 0 0 0 17.73 18l2 2L21 18.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                     <div class="team-image-small">
                         <img src="6 - Meet the Team - Wolf Carpenters Crew/team-leaders-closeup.webp" alt="Wolf Carpenters Leaders">
@@ -564,7 +1388,7 @@
             </div>
 
             <div style="text-align: center;">
-                <a href="#contact" class="cta-button">Start My Home Addition Today</a>
+                <a href="#contact" class="cta-button">Start My Home Addition Today →</a>
             </div>
         </div>
     </section>
@@ -698,7 +1522,7 @@
                     <div class="testimonial-rating">★★★★★</div>
                     <p class="testimonial-text">"From start to finish, Wolf Carpenters was extremely professional. Our second-story addition looks like it's always been there. The craftsmanship is outstanding, and they completed the project on time. Very pleased with sales, service, and production!"</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">MJ</div>
+                        <img class="testimonial-avatar" src="review 3.png" alt="Michael & Jennifer" width="50" height="50">
                         <div class="testimonial-info">
                             <h4>Michael & Jennifer</h4>
                             <p>Second Story Addition</p>
@@ -710,7 +1534,7 @@
                     <div class="testimonial-rating">★★★★★</div>
                     <p class="testimonial-text">"We needed more space for our growing family, and Wolf Carpenters delivered exactly what we wanted. The master suite addition is beautiful, and the attention to detail is incredible. They matched our home's architecture perfectly!"</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">SR</div>
+                        <img class="testimonial-avatar" src="review 1.png" alt="Sarah Rodriguez" width="50" height="50">
                         <div class="testimonial-info">
                             <h4>Sarah Rodriguez</h4>
                             <p>Master Suite Addition</p>
@@ -722,7 +1546,7 @@
                     <div class="testimonial-rating">★★★★★</div>
                     <p class="testimonial-text">"Outstanding communication throughout the entire process. They kept us informed every step of the way, and there were no surprises. Our sunroom is now our favorite room in the house. Highly recommend Wolf Carpenters!"</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">DK</div>
+                        <img class="testimonial-avatar" src="review 2.png" alt="David Kim" width="50" height="50">
                         <div class="testimonial-info">
                             <h4>David Kim</h4>
                             <p>Sunroom Addition</p>
@@ -739,7 +1563,8 @@
             <div style="max-width: 1200px; margin: 0 auto; display: flex; gap: 60px; align-items: center; flex-wrap: wrap;">
                 <div style="flex: 1; min-width: 400px; color: var(--white);">
                     <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: var(--white);">Ready to Expand Your Home?</h2>
-                    <p style="font-size: 1.2rem; margin-bottom: 30px; color: rgba(255,255,255,0.9);">Schedule a free consultation and detailed estimate for your home addition project. Let's discuss how we can create the perfect space for your family.</p>
+                    <p style="font-size: 1.2rem; margin-bottom: 10px; color: rgba(255,255,255,0.9);">Schedule a free consultation and detailed estimate for your home addition project. Let's discuss how we can create the perfect space for your family.</p>
+                    <p style="margin-bottom: 30px;"><span class="scarcity-tag">We're booking Spring projects now — <strong>only 4 April slots left</strong></span></p>
                     
                     <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 30px;">
                         <div style="display: flex; align-items: center; gap: 15px;">
@@ -763,8 +1588,8 @@
 
                 <!-- Contact Form -->
                 <div class="hero-form-container" id="contact-form" style="margin: 0; scroll-margin-top: 120px;">
-                    <h3>Get Your Free Estimate</h3>
-                    <p>Start your addition project today</p>
+                    <h3>Claim Your Free Estimate</h3>
+                    <p>April slots are going fast — secure yours today</p>
                     <form action="#" method="POST">
                         <div class="form-group">
                             <label for="contact-name">Full Name *</label>
@@ -790,8 +1615,11 @@
                                 <option value="not-sure">Not Sure Yet</option>
                             </select>
                         </div>
-                        <button type="submit" class="submit-button">Get Free Consultation</button>
+                        <button type="submit" class="submit-button">Get Free Consultation →</button>
                     </form>
+                    <div class="scarcity-wrap">
+                        <span class="scarcity-tag dark">Only <strong>4 project slots</strong> open for April — Spring is filling fast</span>
+                    </div>
                 </div>
             </div>
         </div>

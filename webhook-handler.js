@@ -8,7 +8,7 @@
     'use strict';
 
     // Configuração do webhook
-    const WEBHOOK_URL = 'https://mediagrowth-n8n.63kuy3.easypanel.host/webhook/53d5ad38-b5b8-496a-ab98-b204a15068a9';
+    const WEBHOOK_URL = 'https://hook.us2.make.com/m6c3nxfa5estl25ymykzq44hlvvfnajp';
     
     /**
      * Detecta a plataforma baseada na URL

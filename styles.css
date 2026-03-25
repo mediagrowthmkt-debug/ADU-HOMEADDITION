@@ -592,6 +592,7 @@ section {
     padding: 40px;
     transition: all 0.3s ease;
     border: 2px solid transparent;
+    overflow: hidden;
 }
 
 .type-card:hover {
@@ -1328,8 +1329,8 @@ footer p {
 
 @media (max-width: 968px) {
     .hero-section {
-        min-height: 900px;
-        height: 1448px;
+        min-height: unset;
+        height: auto;
         padding-top: 140px;
         padding-bottom: 40px;
         justify-content: flex-start;
@@ -1339,6 +1340,7 @@ footer p {
         flex-direction: column;
         gap: 40px;
         justify-content: center;
+        align-items: center;
         padding: 40px 20px;
     }
 
@@ -1348,7 +1350,10 @@ footer p {
     }
 
     .hero-form-container {
-        max-width: 86%;
+        width: 100%;
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
         padding: 25px 20px;
         margin-top: 30px;
     }
@@ -1463,12 +1468,19 @@ footer p {
 
 @media (max-width: 640px) {
     .hero-section {
-        min-height: 950px;
-        height: 1448px;
+        min-height: unset;
+        height: auto;
         padding-top: 150px;
-        padding-bottom: 60px;
+        padding-bottom: 40px;
         justify-content: flex-start;
-        align-items: flex-start;
+        align-items: center;
+    }
+
+    .hero-form-container {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .hero-text h1 {
