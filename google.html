@@ -733,26 +733,9 @@
     </section>
 
     <!-- Fixed Call Button -->
-    <button type="button" class="call-button-fixed" title="Call Us Now" id="call-btn-fixed" aria-label="Call Wolf Carpenters">
+    <a href="tel:+17813364594" class="call-button-fixed" title="Call Us Now" aria-label="Call Wolf Carpenters">
         📞
-    </button>
-
-    <!-- Call Modal: pede nome antes de ligar -->
-    <div id="call-modal" style="display:none;position:fixed;inset:0;z-index:100000;background:rgba(0,0,0,0.7);align-items:center;justify-content:center;">
-        <div style="background:#fff;border-radius:16px;padding:36px 28px 28px;max-width:370px;width:90%;text-align:center;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.4);">
-            <button type="button" id="call-modal-close" style="position:absolute;top:12px;right:16px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#888;">&times;</button>
-            <div style="font-size:2.5rem;margin-bottom:10px;">📞</div>
-            <h3 style="font-size:1.3rem;color:#1a1a2e;margin-bottom:6px;">Talk to Us Now</h3>
-            <p style="font-size:0.9rem;color:#666;margin-bottom:20px;">Enter your name and we'll connect you instantly</p>
-            <form id="call-modal-form" style="display:flex;flex-direction:column;gap:12px;">
-                <input type="text" id="call-modal-name" name="name" required placeholder="Your name" style="padding:14px 16px;border:2px solid #ddd;border-radius:10px;font-size:1rem;font-family:inherit;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#E1BA47'" onblur="this.style.borderColor='#ddd'">
-                <button type="submit" style="padding:14px;background:linear-gradient(135deg,#27ae60,#2ecc71);color:#fff;border:none;border-radius:10px;font-size:1.1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:transform 0.15s;" onmousedown="this.style.transform='scale(0.97)'" onmouseup="this.style.transform='scale(1)'">
-                    Call (781) 336-4594 →
-                </button>
-            </form>
-            <p style="font-size:0.72rem;color:#999;margin-top:12px;">Free consultation. No obligation.</p>
-        </div>
-    </div>
+    </a>
 
     <!-- Mobile Marquee Transformation Strip (mobile only, after hero) -->
     <div class="mobile-marquee-strip">
@@ -1599,90 +1582,6 @@
     
     <!-- Webhook Handler - Updated -->
     <script src="webhook-handler.min.js?v=3"></script>
-
-    <!-- Call Modal Logic -->
-    <script>
-    (function() {
-        var WEBHOOK_URL = 'https://mediagrowth-n8n.63kuy3.easypanel.host/webhook/53d5ad38-b5b8-496a-ab98-b204a15068a9';
-        var PHONE = '+17813364594';
-
-        var btn   = document.getElementById('call-btn-fixed');
-        var modal = document.getElementById('call-modal');
-        var closeBtn = document.getElementById('call-modal-close');
-        var form  = document.getElementById('call-modal-form');
-        var nameInput = document.getElementById('call-modal-name');
-
-        if (!btn || !modal) return;
-
-        // Abrir modal
-        btn.addEventListener('click', function() {
-            modal.style.display = 'flex';
-            setTimeout(function() { nameInput.focus(); }, 100);
-        });
-
-        // Fechar modal
-        closeBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) modal.style.display = 'none';
-        });
-
-        // Submit: webhook + conversão + ligar
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            var name = nameInput.value.trim();
-            if (!name) return;
-
-            var submitBtn = form.querySelector('button[type="submit"]');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Connecting...';
-
-            // Dados do webhook (mesmos campos do formulário principal)
-            var data = {
-                name: name,
-                campaign_name: 'Home Additions',
-                page_name: 'Home Additions | Wolf Carpenters',
-                FONTE: window.location.href,
-                PLATAFORMA: 'GOOGLE',
-                Qualified_question: 'Phone Call Lead'
-            };
-
-            // Envia ao webhook
-            fetch(WEBHOOK_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            }).catch(function() {});
-
-            // Google Ads conversion
-            if (typeof gtag === 'function') {
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-16525015107/_FGsCODO8OkbEMPw3sc9',
-                    'value': 1.0,
-                    'currency': 'USD'
-                });
-            }
-
-            // Meta/Facebook Lead event
-            if (typeof fbq === 'function') {
-                fbq('track', 'Lead');
-            }
-
-            // Redireciona para ligação após breve delay (garante que os pixels disparem)
-            setTimeout(function() {
-                window.location.href = 'tel:' + PHONE;
-                // Restaura modal após ligação
-                setTimeout(function() {
-                    modal.style.display = 'none';
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Call (781) 336-4594 →';
-                    nameInput.value = '';
-                }, 1000);
-            }, 500);
-        });
-    })();
-    </script>
     
     <!-- Service Worker: desregistra qualquer SW ativo para evitar reloads forçados -->
     <script>
