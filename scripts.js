@@ -87,11 +87,6 @@ window.addEventListener('load', function() {
         let currentSlide = 0;
         setInterval(function() {
             heroSlides[currentSlide].classList.remove('active');
-            const img = heroSlides[currentSlide].querySelector('img');
-            if (img) {
-                const newImg = img.cloneNode(true);
-                img.parentNode.replaceChild(newImg, img);
-            }
             currentSlide = (currentSlide + 1) % heroSlides.length;
             heroSlides[currentSlide].classList.add('active');
         }, 8000);

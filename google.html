@@ -52,13 +52,6 @@
     <!-- Performance Optimization -->
     <meta name="theme-color" content="#E1BA47">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Wolf Additions">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="0 - Brand Logo/brand-logo-wolfcarpenters.png">
@@ -661,8 +654,8 @@
         <div class="hero-content">
             <div class="hero-text">
                 <p class="hero-tagline" style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px;"><span id="typewriter-text"></span><span class="typewriter-cursor">|</span></p>
-                <h1>Expand Your Home. <span class="highlight">Elevate Your Life</span></h1>
-                <p>Maybe your family is growing, your work setup has changed, or you're finally ready to create that extra space you've always dreamed of. We design and build custom home additions that feel like they've always been part of your house—seamless in function, style, and architecture.</p>
+                <h1>Your Home Is Running Out of Space. <span class="highlight">Let's Fix That.</span></h1>
+                <p>A home addition is the fastest way to get the space your family needs without the cost and stress of moving. An extra bedroom, a bigger kitchen, a home office, a second story. Wolf Carpenters builds it <strong>seamlessly into your existing home</strong>, on time and on budget, right here in the North Shore &amp; Greater Boston. And every project includes <strong>the architect's floor plan at no cost to you.</strong></p>
 
                 <!-- Hero Marquee — Desktop only -->
                 <div class="hero-marquee-wrap">
@@ -699,8 +692,8 @@
 
             <!-- Hero Form -->
             <div class="hero-form-container">
-                <h3>Claim Your Free Estimate</h3>
-                <p>April slots are going fast — secure yours today</p>
+                <h3>Free Estimate: Architect's Floor Plan Included</h3>
+                <p>Book your slot and we'll have our in-house architect draw your plan — <strong>on us.</strong></p>
                 <form action="#" method="POST">
                     <div class="form-group">
                         <label for="name">Full Name *</label>
@@ -726,10 +719,10 @@
                             <option value="not-sure">Not Sure Yet</option>
                         </select>
                     </div>
-                    <button type="submit" class="submit-button">Get Free Consultation →</button>
+                    <button type="submit" class="submit-button">Get My Free Estimate + Floor Plan →</button>
                 </form>
                 <div class="scarcity-wrap">
-                    <span class="scarcity-tag dark">Only <strong>4 project slots</strong> open for April — Spring is filling fast</span>
+                    <span class="scarcity-tag dark">⚠️ Only <strong>3 project slots left</strong> this month — we book out fast</span>
                 </div>
             </div>
         </div>
@@ -784,6 +777,7 @@
                     id="transformation-video"
                     class="transformation-vid"
                     autoplay
+                    muted
                     loop
                     playsinline
                     preload="none"
@@ -818,17 +812,13 @@
         </div>
     </section>
 
-    <!-- Video Lazy Load + autoplay muted + botão unmute -->
+    <!-- Video mute toggle -->
     <script>
     (function() {
         function initVideo() {
             var vid = document.getElementById('transformation-video');
             var btn = document.getElementById('vid-mute-btn');
             if (!vid) return;
-
-            var isMobile = window.innerWidth <= 768;
-            var src = isMobile ? 'home-addition-mobile.mp4' : 'home-addition-desktop.mp4';
-            var loaded = false;
 
             function updateBtn() {
                 if (!btn) return;
@@ -843,40 +833,16 @@
                 }
             }
 
-            function loadAndPlay() {
-                if (loaded) return;
-                loaded = true;
-                vid.src = src;
-                vid.muted = true;
-                vid.load();
-                vid.play().catch(function(){});
-                updateBtn();
-            }
-
             // Toggle mute ao clicar no botão
             if (btn) {
                 btn.addEventListener('click', function() {
-                    // Se ainda não carregou, força carregar ao clicar
-                    if (!loaded) loadAndPlay();
                     vid.muted = !vid.muted;
                     updateBtn();
-                    // Garante que o vídeo está tocando
-                    if (!vid.paused) return;
-                    vid.play().catch(function(){});
+                    if (vid.paused) vid.play().catch(function(){});
                 });
             }
 
-            if ('IntersectionObserver' in window) {
-                var observer = new IntersectionObserver(function(entries) {
-                    if (entries[0].isIntersecting) {
-                        loadAndPlay();
-                        observer.disconnect();
-                    }
-                }, { threshold: 0.25 });
-                observer.observe(vid);
-            } else {
-                loadAndPlay();
-            }
+            updateBtn();
         }
 
         if (document.readyState === 'loading') {
@@ -917,17 +883,13 @@
     })();
     </script>
 
-    <!-- Team Video Lazy Load + mute toggle -->
+    <!-- Team Video mute toggle -->
     <script>
     (function() {
         function initTeamVideo() {
             var vid = document.getElementById('team-video');
             var btn = document.getElementById('team-mute-btn');
             if (!vid) return;
-
-            var isMobile = window.innerWidth <= 768;
-            var src = isMobile ? 'team-mobile.mp4' : 'team-desktop.mp4';
-            var loaded = false;
 
             function updateBtn() {
                 if (!btn) return;
@@ -942,37 +904,15 @@
                 }
             }
 
-            function loadAndPlay() {
-                if (loaded) return;
-                loaded = true;
-                vid.src = src;
-                vid.muted = true;
-                vid.load();
-                vid.play().catch(function(){});
-                updateBtn();
-            }
-
             if (btn) {
                 btn.addEventListener('click', function() {
-                    if (!loaded) loadAndPlay();
                     vid.muted = !vid.muted;
                     updateBtn();
-                    if (!vid.paused) return;
-                    vid.play().catch(function(){});
+                    if (vid.paused) vid.play().catch(function(){});
                 });
             }
 
-            if ('IntersectionObserver' in window) {
-                var observer = new IntersectionObserver(function(entries) {
-                    if (entries[0].isIntersecting) {
-                        loadAndPlay();
-                        observer.disconnect();
-                    }
-                }, { threshold: 0.25 });
-                observer.observe(vid);
-            } else {
-                loadAndPlay();
-            }
+            updateBtn();
         }
 
         if (document.readyState === 'loading') {
@@ -1334,6 +1274,7 @@
                                 id="team-video"
                                 class="team-vid"
                                 autoplay
+                                muted
                                 loop
                                 playsinline
                                 preload="none"
@@ -1638,13 +1579,13 @@
     <!-- Webhook Handler - Updated -->
     <script src="webhook-handler.min.js?v=3"></script>
     
-    <!-- Service Worker Registration -->
+    <!-- Service Worker: desregistra qualquer SW ativo para evitar reloads forçados -->
     <script>
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/ADU-HOMEADDITION/sw.js')
-                    .then(reg => console.log('✅ Service Worker registered:', reg.scope))
-                    .catch(err => console.log('❌ Service Worker registration failed:', err));
+            navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                for (var reg of registrations) {
+                    reg.unregister();
+                }
             });
         }
 
