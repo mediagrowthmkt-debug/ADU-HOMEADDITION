@@ -1354,27 +1354,39 @@ footer p {
         max-width: 520px;
         margin-left: auto;
         margin-right: auto;
-        padding: 25px 20px;
-        margin-top: 30px;
+        padding: 18px 16px;
+        margin-top: 20px;
     }
 
     .hero-form-container h3 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+        margin-bottom: 4px;
     }
 
     .hero-form-container p {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+    }
+
+    .hero-form-container .form-group {
+        margin-bottom: 8px;
+    }
+
+    .hero-form-container .form-group label {
+        margin-bottom: 3px;
+        font-size: 0.8rem;
     }
 
     .hero-form-container .form-group input,
     .hero-form-container .form-group select {
-        padding: 13px 14px;
+        padding: 10px 12px;
         font-size: 16px;
     }
 
     .hero-form-container .submit-button {
-        padding: 15px;
-        font-size: 1.05rem;
+        padding: 12px;
+        font-size: 1rem;
+        margin-top: 4px;
     }
 
     .hero-text h1 {
@@ -1459,10 +1471,18 @@ footer p {
     .cta-section .container > div {
         flex-direction: column;
         gap: 40px;
+        align-items: center;
+    }
+
+    .cta-section .container > div > div:first-child {
+        min-width: 100% !important;
+        text-align: center;
     }
 
     .cta-section .hero-form-container {
-        max-width: 100%;
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -1470,8 +1490,8 @@ footer p {
     .hero-section {
         min-height: unset;
         height: auto;
-        padding-top: 150px;
-        padding-bottom: 40px;
+        padding-top: 120px;
+        padding-bottom: 20px;
         justify-content: flex-start;
         align-items: center;
     }
@@ -1481,6 +1501,38 @@ footer p {
         max-width: 100%;
         margin-left: auto;
         margin-right: auto;
+        padding: 16px 14px;
+        margin-top: 15px;
+    }
+
+    .hero-form-container h3 {
+        font-size: 1.2rem;
+        margin-bottom: 2px;
+    }
+
+    .hero-form-container p {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+    }
+
+    .hero-form-container .form-group {
+        margin-bottom: 6px;
+    }
+
+    .hero-form-container .form-group label {
+        margin-bottom: 2px;
+        font-size: 0.78rem;
+    }
+
+    .hero-form-container .form-group input,
+    .hero-form-container .form-group select {
+        padding: 9px 10px;
+    }
+
+    .hero-form-container .submit-button {
+        padding: 11px;
+        font-size: 0.95rem;
+        margin-top: 2px;
     }
 
     .hero-text h1 {
@@ -1591,12 +1643,19 @@ footer p {
     }
 
     .cta-section .container > div > div:first-child {
-        min-width: 100%;
+        min-width: 100% !important;
         text-align: center;
+    }
+
+    .cta-section .container > div {
+        align-items: center;
+        justify-content: center;
     }
 
     .cta-section .hero-form-container {
         max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
