@@ -137,10 +137,18 @@
         );
         
         console.log('Sending to webhook:', webhookData);
-        
+
+        // Dispara eventos de conversão
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'Lead', { content_name: getCampaignName(), content_category: additionTypeText });
+        }
+        if (typeof gtag !== 'undefined' && platform === 'GOOGLE') {
+            gtag('event', 'conversion', { 'send_to': 'AW-16525015107/form_submit' });
+        }
+
         // Envia para webhook
         const result = await sendToWebhook(webhookData);
-        
+
         // Redireciona para página de agradecimento
         window.location.href = 'thank-you.html';
     }
