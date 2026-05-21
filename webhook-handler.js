@@ -69,6 +69,10 @@
             .human-check strong { display: block; margin-bottom: 8px; font-size: 0.85rem; font-weight: 700; color: #1a1a1a; }
             .human-check small { display: block; color: #666; font-size: 0.78rem; line-height: 1.35; margin-top: 8px; }
             .recaptcha-widget { min-height: 78px; }
+            .manual-human-check { display: none; align-items: center; gap: 10px; margin-top: 8px; font-size: 0.92rem; color: #1a1a1a; }
+            .manual-human-check input { width: 18px; height: 18px; accent-color: #E1BA47; }
+            .human-check.use-manual .manual-human-check { display: flex; }
+            .human-check.use-manual .recaptcha-widget { display: none; min-height: 0; }
         `;
         document.head.appendChild(style);
     }
@@ -90,6 +94,7 @@
         humanCheck.innerHTML = `
             <strong>Human verification</strong>
             <div class="recaptcha-widget"></div>
+            <label class="manual-human-check"><input type="checkbox" name="manual_human_check" value="yes">I am not a robot</label>
             <small>Check I am not a robot before sending.</small>
         `;
 
@@ -104,6 +109,8 @@
         if (window.grecaptcha && window.grecaptcha.render) {
             renderRecaptcha(form);
         }
+
+        scheduleRecaptchaRender();
     }
 
     function renderRecaptcha(form) {
@@ -112,27 +119,58 @@
         const widget = form.querySelector('.recaptcha-widget');
         if (!widget || !window.grecaptcha || !window.grecaptcha.render) return;
 
-        form.dataset.recaptchaWidgetId = String(
-            window.grecaptcha.render(widget, {
-                sitekey: RECAPTCHA_SITE_KEY
-            })
-        );
+        try {
+            form.dataset.recaptchaWidgetId = String(
+                window.grecaptcha.render(widget, {
+                    sitekey: RECAPTCHA_SITE_KEY
+                })
+            );
+        } catch (error) {
+            useManualHumanCheck(form);
+        }
+    }
+
+    function renderAllRecaptchas() {
+        document.querySelectorAll('form[data-human-check-ready="true"]').forEach(renderRecaptcha);
+    }
+
+    function scheduleRecaptchaRender() {
+        let attempts = 0;
+        const timer = window.setInterval(() => {
+            attempts += 1;
+            renderAllRecaptchas();
+
+            if (document.querySelector('.recaptcha-widget iframe') || attempts >= 20) {
+                window.clearInterval(timer);
+                document.querySelectorAll('form[data-human-check-ready="true"]').forEach(form => {
+                    if (!form.dataset.recaptchaWidgetId) useManualHumanCheck(form);
+                });
+            }
+        }, 250);
+    }
+
+    function useManualHumanCheck(form) {
+        const humanCheck = form.querySelector('.human-check');
+        if (humanCheck) humanCheck.classList.add('use-manual');
     }
 
     function getRecaptchaToken(form) {
-        if (!window.grecaptcha || !window.grecaptcha.getResponse) {
-            throw new Error('recaptcha_not_loaded');
+        if (window.grecaptcha && window.grecaptcha.getResponse) {
+            renderRecaptcha(form);
+
+            const widgetId = form.dataset.recaptchaWidgetId;
+            if (widgetId) {
+                const token = window.grecaptcha.getResponse(widgetId);
+                if (token) return token;
+            }
         }
 
-        renderRecaptcha(form);
-
-        const widgetId = form.dataset.recaptchaWidgetId;
-        const token = window.grecaptcha.getResponse(widgetId);
-        if (!token) {
-            throw new Error('recaptcha_missing');
+        useManualHumanCheck(form);
+        if (form.querySelector('[name="manual_human_check"]:checked')) {
+            return 'manual-checkbox-fallback';
         }
 
-        return token;
+        throw new Error('recaptcha_missing');
     }
 
     function validateHumanCheck(form) {
@@ -240,6 +278,10 @@
 
         try {
             webhookData.recaptcha_token = getRecaptchaToken(form);
+            if (webhookData.recaptcha_token === 'manual-checkbox-fallback') {
+                webhookData.human_validation_method = 'manual_checkbox_fallback';
+                webhookData.manual_human_check = true;
+            }
         } catch (error) {
             console.error('reCAPTCHA error:', error);
             submitButton.disabled = false;
