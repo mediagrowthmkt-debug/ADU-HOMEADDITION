@@ -66,8 +66,9 @@
         style.textContent = `
             .wolf-hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
             .human-check { background: #f8f8f8; border: 1px solid #e0e0e0; border-radius: 8px; padding: 12px 14px; margin: 0 0 15px; }
-            .human-check strong { display: block; margin-bottom: 4px; font-size: 0.85rem; font-weight: 700; color: #1a1a1a; }
-            .human-check small { display: block; color: #666; font-size: 0.78rem; line-height: 1.35; }
+            .human-check strong { display: block; margin-bottom: 8px; font-size: 0.85rem; font-weight: 700; color: #1a1a1a; }
+            .human-check small { display: block; color: #666; font-size: 0.78rem; line-height: 1.35; margin-top: 8px; }
+            .recaptcha-widget { min-height: 78px; }
         `;
         document.head.appendChild(style);
     }
@@ -88,7 +89,8 @@
         humanCheck.className = 'human-check';
         humanCheck.innerHTML = `
             <strong>Human verification</strong>
-            <small>Protected by Google reCAPTCHA.</small>
+            <div class="recaptcha-widget"></div>
+            <small>Check I am not a robot before sending.</small>
         `;
 
         const submitButton = form.querySelector('button[type="submit"]');
@@ -98,21 +100,39 @@
         }
 
         form.dataset.humanCheckReady = 'true';
+
+        if (window.grecaptcha && window.grecaptcha.render) {
+            renderRecaptcha(form);
+        }
     }
 
-    function getRecaptchaToken() {
-        return new Promise((resolve, reject) => {
-            if (!window.grecaptcha || !window.grecaptcha.ready) {
-                reject(new Error('recaptcha_not_loaded'));
-                return;
-            }
+    function renderRecaptcha(form) {
+        if (form.dataset.recaptchaWidgetId) return;
 
-            window.grecaptcha.ready(() => {
-                window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'lead_submit' })
-                    .then(resolve)
-                    .catch(reject);
-            });
-        });
+        const widget = form.querySelector('.recaptcha-widget');
+        if (!widget || !window.grecaptcha || !window.grecaptcha.render) return;
+
+        form.dataset.recaptchaWidgetId = String(
+            window.grecaptcha.render(widget, {
+                sitekey: RECAPTCHA_SITE_KEY
+            })
+        );
+    }
+
+    function getRecaptchaToken(form) {
+        if (!window.grecaptcha || !window.grecaptcha.getResponse) {
+            throw new Error('recaptcha_not_loaded');
+        }
+
+        renderRecaptcha(form);
+
+        const widgetId = form.dataset.recaptchaWidgetId;
+        const token = window.grecaptcha.getResponse(widgetId);
+        if (!token) {
+            throw new Error('recaptcha_missing');
+        }
+
+        return token;
     }
 
     function validateHumanCheck(form) {
@@ -219,7 +239,7 @@
         console.log('Sending to webhook:', webhookData);
 
         try {
-            webhookData.recaptcha_token = await getRecaptchaToken();
+            webhookData.recaptcha_token = getRecaptchaToken(form);
         } catch (error) {
             console.error('reCAPTCHA error:', error);
             submitButton.disabled = false;
