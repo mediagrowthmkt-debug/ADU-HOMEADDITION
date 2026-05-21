@@ -9,6 +9,7 @@
 
     // Configuração do webhook
     const WEBHOOK_URL = 'https://mediagrowth-n8n.63kuy3.easypanel.host/webhook/53d5ad38-b5b8-496a-ab98-b204a15068a9';
+    const RECAPTCHA_SITE_KEY = '6Lf6EvYsAAAAACvhmVv7noOqYWoBMNTpncggwrW_';
     
     /**
      * Detecta a plataforma baseada na URL
@@ -56,6 +57,79 @@
     function getCampaignName() {
         return 'Home Additions';
     }
+
+    function injectHumanCheckStyles() {
+        if (document.getElementById('wolf-human-check-styles')) return;
+
+        const style = document.createElement('style');
+        style.id = 'wolf-human-check-styles';
+        style.textContent = `
+            .wolf-hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+            .human-check { background: #f8f8f8; border: 1px solid #e0e0e0; border-radius: 8px; padding: 12px 14px; margin: 0 0 15px; }
+            .human-check strong { display: block; margin-bottom: 4px; font-size: 0.85rem; font-weight: 700; color: #1a1a1a; }
+            .human-check small { display: block; color: #666; font-size: 0.78rem; line-height: 1.35; }
+        `;
+        document.head.appendChild(style);
+    }
+
+    function enhanceFormProtection(form) {
+        if (form.dataset.humanCheckReady === 'true') return;
+
+        injectHumanCheckStyles();
+
+        form.dataset.loadedAt = String(Date.now());
+
+        const honeypot = document.createElement('div');
+        honeypot.className = 'wolf-hp-field';
+        honeypot.setAttribute('aria-hidden', 'true');
+        honeypot.innerHTML = '<label>Company Website<input type="text" name="company_website" tabindex="-1" autocomplete="off"></label>';
+
+        const humanCheck = document.createElement('div');
+        humanCheck.className = 'human-check';
+        humanCheck.innerHTML = `
+            <strong>Human verification</strong>
+            <small>Protected by Google reCAPTCHA.</small>
+        `;
+
+        const submitButton = form.querySelector('button[type="submit"]');
+        if (submitButton) {
+            form.insertBefore(honeypot, submitButton);
+            form.insertBefore(humanCheck, submitButton);
+        }
+
+        form.dataset.humanCheckReady = 'true';
+    }
+
+    function getRecaptchaToken() {
+        return new Promise((resolve, reject) => {
+            if (!window.grecaptcha || !window.grecaptcha.ready) {
+                reject(new Error('recaptcha_not_loaded'));
+                return;
+            }
+
+            window.grecaptcha.ready(() => {
+                window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'lead_submit' })
+                    .then(resolve)
+                    .catch(reject);
+            });
+        });
+    }
+
+    function validateHumanCheck(form) {
+        const honeypot = form.querySelector('[name="company_website"]');
+        const loadedAt = Number(form.dataset.loadedAt || Date.now());
+
+        if (honeypot && honeypot.value.trim()) {
+            return false;
+        }
+
+        if (Date.now() - loadedAt < 4000) {
+            alert('Please take a moment to complete the form before submitting.');
+            return false;
+        }
+
+        return true;
+    }
     
     /**
      * Envia dados para o webhook
@@ -91,6 +165,8 @@
         event.preventDefault();
         
         const form = event.target;
+        if (!validateHumanCheck(form)) return;
+
         const submitButton = form.querySelector('button[type="submit"]');
         const originalButtonText = submitButton.textContent;
         
@@ -128,7 +204,11 @@
             page_name: getPageName(),
             FONTE: getFonte(),
             PLATAFORMA: platform,
-            Qualified_question: additionTypeText || undefined
+            Qualified_question: additionTypeText || undefined,
+            human_validation: 'passed',
+            human_validation_method: 'recaptcha_honeypot_time',
+            form_elapsed_ms: Date.now() - Number(form.dataset.loadedAt || Date.now()),
+            honeypot: ''
         };
         
         // Remove campos undefined para enviar apenas campos preenchidos
@@ -138,16 +218,32 @@
         
         console.log('Sending to webhook:', webhookData);
 
-        // Dispara eventos de conversão
+        try {
+            webhookData.recaptcha_token = await getRecaptchaToken();
+        } catch (error) {
+            console.error('reCAPTCHA error:', error);
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+            alert('Please complete the human verification before submitting.');
+            return;
+        }
+
+        // Envia para webhook
+        const result = await sendToWebhook(webhookData);
+        if (!result.success) {
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+            alert('Something went wrong. Please try again or call us directly.');
+            return;
+        }
+
+        // Dispara eventos de conversão após validação e webhook aceitos
         if (typeof fbq !== 'undefined') {
             fbq('track', 'Lead', { content_name: getCampaignName(), content_category: additionTypeText });
         }
         if (typeof gtag !== 'undefined' && platform === 'GOOGLE') {
             gtag('event', 'conversion', { 'send_to': 'AW-16525015107/form_submit' });
         }
-
-        // Envia para webhook
-        const result = await sendToWebhook(webhookData);
 
         // Redireciona para página de agradecimento
         window.location.href = 'thank-you.html';
@@ -172,13 +268,14 @@
         const forms = document.querySelectorAll('form');
         
         forms.forEach(form => {
+            enhanceFormProtection(form);
             // Remove listener antigo se existir
             form.removeEventListener('submit', handleFormSubmit);
             // Adiciona novo listener
             form.addEventListener('submit', handleFormSubmit);
         });
         
-        console.log(`✅ Webhook handler initialized for ${forms.length} form(s)`);
+        console.log(`Webhook handler initialized for ${forms.length} form(s)`);
     }
     
     // Inicializa
