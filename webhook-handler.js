@@ -69,9 +69,9 @@
             .human-check strong { display: block; margin-bottom: 8px; font-size: 0.85rem; font-weight: 700; color: #1a1a1a; }
             .human-check small { display: block; color: #666; font-size: 0.78rem; line-height: 1.35; margin-top: 8px; }
             .recaptcha-widget { min-height: 78px; }
-            .manual-human-check { display: none; align-items: center; gap: 10px; margin-top: 8px; font-size: 0.92rem; color: #1a1a1a; }
+            .manual-human-check { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: 0.92rem; color: #1a1a1a; }
             .manual-human-check input { width: 18px; height: 18px; accent-color: #E1BA47; }
-            .human-check.use-manual .manual-human-check { display: flex; }
+            .human-check.use-google .manual-human-check { display: none; }
             .human-check.use-manual .recaptcha-widget { display: none; min-height: 0; }
         `;
         document.head.appendChild(style);
@@ -125,6 +125,8 @@
                     sitekey: RECAPTCHA_SITE_KEY
                 })
             );
+            const humanCheck = form.querySelector(".human-check");
+            if (humanCheck) humanCheck.classList.add("use-google");
         } catch (error) {
             useManualHumanCheck(form);
         }
