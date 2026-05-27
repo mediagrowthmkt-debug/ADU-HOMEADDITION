@@ -11,15 +11,34 @@
     <!-- HighLevel Call Tracking -->
     <script src="https://backend.leadconnectorhq.com/appengine/loc/xZgZbZ25TgMXr6HsImkO/pool/hyEwFNyjGgwjhY1gNhZR/number_pool.js"></script>
     <script src="https://backend.leadconnectorhq.com/appengine/js/user_session.js"></script>
+
+    <!-- ============================================== -->
+    <!-- ANALYTICS MEDIAGROWTH v1.2 - GA4 + Clarity     -->
+    <!-- Instrumentado por @frank em 2026-05-27          -->
+    <!-- ============================================== -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'wait_for_update': 500
+      });
+    </script>
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16525015107"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'AW-16525015107');
+      gtag('config', 'G-F1Z5VEGBBJ', {
+        page_title: document.title,
+        page_location: window.location.href,
+        send_page_view: true
+      });
     </script>
 
     <!-- Microsoft Clarity -->
@@ -583,6 +602,7 @@
             margin-top: 8px;
         }
     </style>
+    <script src="mg-analytics.js" defer></script>
 </head>
 <body>
 
