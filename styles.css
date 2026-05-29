@@ -5,7 +5,7 @@
 }
 
 :root {
-    --primary-color: #E1BA47;
+    --primary-color: #00C853;
     --secondary-color: #010101;
     --support-color: #F5F6F7;
     --white: #ffffff;
@@ -323,7 +323,7 @@ h1, h2, h3, h4, h5, h6 {
 .stage-btn.active {
     background: var(--primary-color);
     border-color: var(--primary-color);
-    box-shadow: 0 6px 25px rgba(225, 186, 71, 0.4);
+    box-shadow: 0 6px 25px rgba(0, 200, 83, 0.4);
 }
 
 .stage-number {
@@ -415,7 +415,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.1rem;
     margin-bottom: 10px;
-    box-shadow: 0 4px 15px rgba(225, 186, 71, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 200, 83, 0.3);
 }
 
 .stage-description {
@@ -481,7 +481,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 20px rgba(225, 186, 71, 0.5);
+    box-shadow: 0 0 20px rgba(0, 200, 83, 0.5);
     pointer-events: none;
 }
 
@@ -536,14 +536,14 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.1rem;
     transition: all 0.3s ease;
     border: 2px solid var(--primary-color);
-    box-shadow: 0 4px 15px rgba(225, 186, 71, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 200, 83, 0.3);
 }
 
 .cta-button:hover {
     background: transparent;
     color: var(--primary-color);
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(225, 186, 71, 0.4);
+    box-shadow: 0 6px 20px rgba(0, 200, 83, 0.4);
 }
 
 /* Container */
@@ -1197,7 +1197,7 @@ footer p {
     outline: none;
     border-color: var(--primary-color) !important;
     background: #ffffff !important;
-    box-shadow: 0 0 0 3px rgba(225, 186, 71, 0.1);
+    box-shadow: 0 0 0 3px rgba(0, 200, 83, 0.1);
     color: #333333 !important;
 }
 
@@ -1214,13 +1214,13 @@ footer p {
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 6px;
-    box-shadow: 0 4px 15px rgba(225, 186, 71, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 200, 83, 0.3);
 }
 
 .hero-form-container .submit-button:hover {
-    background: #c9a03d;
+    background: #00A846;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(225, 186, 71, 0.4);
+    box-shadow: 0 6px 20px rgba(0, 200, 83, 0.4);
 }
 
 .form-group {
@@ -1275,9 +1275,9 @@ footer p {
 }
 
 .submit-button:hover {
-    background: #c9a03d;
+    background: #00A846;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(225, 186, 71, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 200, 83, 0.3);
 }
 
 /* Call Button - Fixed Bottom Right */
@@ -1294,7 +1294,7 @@ footer p {
     align-items: center;
     justify-content: center;
     font-size: 2rem;
-    box-shadow: 0 5px 20px rgba(225, 186, 71, 0.4);
+    box-shadow: 0 5px 20px rgba(0, 200, 83, 0.4);
     cursor: pointer;
     z-index: 999;
     transition: all 0.3s ease;
@@ -1304,15 +1304,15 @@ footer p {
 
 .call-button-fixed:hover {
     transform: scale(1.1);
-    box-shadow: 0 8px 30px rgba(225, 186, 71, 0.6);
+    box-shadow: 0 8px 30px rgba(0, 200, 83, 0.6);
 }
 
 @keyframes pulse {
     0%, 100% {
-        box-shadow: 0 5px 20px rgba(225, 186, 71, 0.4);
+        box-shadow: 0 5px 20px rgba(0, 200, 83, 0.4);
     }
     50% {
-        box-shadow: 0 5px 30px rgba(225, 186, 71, 0.7);
+        box-shadow: 0 5px 30px rgba(0, 200, 83, 0.7);
     }
 }
 
@@ -1749,4 +1749,3 @@ footer p {
         height: 180px;
     }
 }
-
