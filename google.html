@@ -39,6 +39,22 @@
         page_location: window.location.href,
         send_page_view: true
       });
+      window.wolfTrackGoogleLead = function(source, extra) {
+        var params = Object.assign({
+          send_to: 'AW-16525015107/_FGsCODO8OkbEMPw3sc9',
+          value: 1.0,
+          currency: 'USD',
+          event_category: 'lead',
+          event_label: source,
+          lead_source: source,
+          page_name: 'Home Additions | Wolf Carpenters',
+          page_location: window.location.href
+        }, extra || {});
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', params);
+          gtag('event', source, params);
+        }
+      };
     </script>
 
     <!-- Microsoft Clarity -->
@@ -1636,6 +1652,38 @@
 
     <!-- Webhook Handler - Updated -->
     <script src="webhook-handler.min.js?v=4"></script>
+
+    <!-- Phone Call Button Conversion Tracking -->
+    <script>
+    (function(){
+        function trackCallClick(){
+            if(typeof window.wolfTrackGoogleLead === 'function'){
+                window.wolfTrackGoogleLead('phone_call_click', {
+                    phone_number: '+17813364594'
+                });
+            } else if(typeof gtag === 'function') {
+                gtag('event', 'phone_call_click', {
+                    event_category: 'lead',
+                    event_label: 'phone_call_click',
+                    phone_number: '+17813364594'
+                });
+            }
+            if(typeof fbq === 'function'){
+                fbq('track', 'Lead', { content_name: 'Home Additions Phone Call' });
+            }
+        }
+        function init(){
+            document.querySelectorAll('a[href^="tel:"]').forEach(function(el){
+                el.addEventListener('click', trackCallClick);
+            });
+        }
+        if(document.readyState === 'loading'){
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    })();
+    </script>
     
     <!-- Service Worker: desregistra qualquer SW ativo para evitar reloads forçados -->
     <script>

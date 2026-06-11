@@ -306,7 +306,13 @@
             fbq('track', 'Lead', { content_name: getCampaignName(), content_category: additionTypeText });
         }
         if (typeof gtag !== 'undefined' && platform === 'GOOGLE') {
-            gtag('event', 'conversion', { 'send_to': 'AW-16525015107/form_submit' });
+            gtag('event', 'lead_form_submit', {
+                event_category: 'lead',
+                event_label: 'lead_form_submit',
+                form_id: form.id || '',
+                form_name: form.id || 'home_addition_form',
+                addition_type: additionTypeText
+            });
         }
 
         // Redireciona para página de agradecimento
