@@ -216,6 +216,58 @@
             return { success: false, error: error.message };
         }
     }
+
+    function grantGoogleConsentForLead() {
+        if (typeof window.gtag !== 'function') return;
+
+        window.gtag('consent', 'update', {
+            ad_storage: 'granted',
+            ad_user_data: 'granted',
+            ad_personalization: 'granted',
+            analytics_storage: 'granted'
+        });
+    }
+
+    function trackGoogleLeadConversion(form, platform, additionTypeText) {
+        return new Promise(resolve => {
+            if (typeof window.gtag !== 'function') {
+                resolve();
+                return;
+            }
+
+            let resolved = false;
+            const finish = () => {
+                if (resolved) return;
+                resolved = true;
+                resolve();
+            };
+
+            window.setTimeout(finish, 1200);
+
+            const baseParams = {
+                event_category: 'lead',
+                event_label: 'lead_form_submit',
+                form_id: form.id || '',
+                form_name: form.id || 'home_addition_form',
+                addition_type: additionTypeText,
+                lead_source: platform,
+                page_name: getPageName(),
+                page_location: window.location.href
+            };
+
+            if (platform === 'GOOGLE') {
+                window.gtag('event', 'conversion', {
+                    ...baseParams,
+                    send_to: 'AW-16525015107/_FGsCODO8OkbEMPw3sc9',
+                    value: 1.0,
+                    currency: 'USD',
+                    event_callback: finish
+                });
+            }
+
+            window.gtag('event', 'lead_form_submit', baseParams);
+        });
+    }
     
     /**
      * Processa o envio do formulário
@@ -305,15 +357,8 @@
         if (typeof fbq !== 'undefined') {
             fbq('track', 'Lead', { content_name: getCampaignName(), content_category: additionTypeText });
         }
-        if (typeof gtag !== 'undefined' && platform === 'GOOGLE') {
-            gtag('event', 'lead_form_submit', {
-                event_category: 'lead',
-                event_label: 'lead_form_submit',
-                form_id: form.id || '',
-                form_name: form.id || 'home_addition_form',
-                addition_type: additionTypeText
-            });
-        }
+        grantGoogleConsentForLead();
+        await trackGoogleLeadConversion(form, platform, additionTypeText);
 
         // Redireciona para página de agradecimento
         window.location.href = 'thank-you.html';
