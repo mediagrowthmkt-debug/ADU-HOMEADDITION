@@ -844,7 +844,7 @@
                 </div>
 
                 <div class="benefit-item">
-                    <div class="benefit-icon">�</div>
+                    <div class="benefit-icon">📋</div>
                     <h3>Transparent Process</h3>
                     <p>No surprises, no hidden costs. We provide clear timelines, detailed estimates, and solutions to fit all budgets. You'll know exactly what to expect.</p>
                 </div>
@@ -1177,15 +1177,15 @@
     <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
 
     <!-- Webhook Handler - Updated -->
-    <script src="webhook-handler.min.js?v=4"></script>
+    <script src="webhook-handler.min.js?v=5"></script>
     
-    <!-- Service Worker Registration -->
+    <!-- Clear old service workers so campaign assets never stay stale -->
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/ADU-HOMEADDITION/sw.js')
-                    .then(reg => console.log('✅ Service Worker registered:', reg.scope))
-                    .catch(err => console.log('❌ Service Worker registration failed:', err));
+                navigator.serviceWorker.getRegistrations()
+                    .then(registrations => registrations.forEach(reg => reg.unregister()))
+                    .catch(err => console.log('Service Worker cleanup failed:', err));
             });
         }
 
