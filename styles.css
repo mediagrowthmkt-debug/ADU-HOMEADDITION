@@ -6,6 +6,7 @@
 
 :root {
     --primary-color: #00C853;
+    --accent-color: #E1BA47;
     --secondary-color: #010101;
     --support-color: #F5F6F7;
     --white: #ffffff;
@@ -97,7 +98,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-link:hover {
-    color: var(--primary-color);
+    color: var(--accent-color);
 }
 
 .nav-cta {
@@ -238,7 +239,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-text .highlight {
-    color: var(--primary-color);
+    color: var(--accent-color);
 }
 
 .hero-text p {
@@ -633,7 +634,7 @@ section {
     content: '✓';
     position: absolute;
     left: 0;
-    color: var(--primary-color);
+    color: var(--accent-color);
     font-weight: bold;
 }
 
@@ -664,7 +665,7 @@ section {
 .benefit-icon {
     font-size: 3rem;
     margin-bottom: 20px;
-    color: var(--primary-color);
+    color: var(--accent-color);
 }
 
 .benefit-item h3 {
@@ -788,7 +789,7 @@ section {
 
 .faq-icon {
     font-size: 1.5rem;
-    color: var(--primary-color);
+    color: var(--accent-color);
     transition: transform 0.3s ease;
 }
 
@@ -901,7 +902,7 @@ section {
 .stat-number {
     font-size: 2.5rem;
     font-weight: 800;
-    color: var(--primary-color);
+    color: var(--accent-color);
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -936,7 +937,7 @@ section {
 }
 
 .testimonial-rating {
-    color: var(--primary-color);
+    color: var(--accent-color);
     font-size: 1.2rem;
     margin-bottom: 15px;
 }

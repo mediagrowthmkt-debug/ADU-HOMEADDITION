@@ -119,7 +119,7 @@
     <style>
         .typewriter-cursor {
             display: inline-block;
-            color: var(--primary-color);
+            color: var(--accent-color, #E1BA47);
             font-weight: 700;
             animation: blink-cursor 0.7s step-end infinite;
         }
@@ -224,7 +224,7 @@
                 background: #111;
             }
             .mobile-marquee-title span {
-                color: var(--primary-color, #00C853);
+                color: var(--accent-color, #E1BA47);
             }
             @keyframes marquee-scroll {
                 0%   { transform: translateX(0); }
@@ -268,7 +268,7 @@
         }
         .vid-badge {
             background: rgba(0,0,0,0.7);
-            color: var(--primary-color, #00C853);
+            color: var(--accent-color, #E1BA47);
             font-size: 0.6rem;
             font-weight: 700;
             letter-spacing: 2px;
@@ -564,7 +564,7 @@
             flex-direction: column;
         }
         .trust-badge-value {
-            color: var(--primary-color, #00C853);
+            color: var(--accent-color, #E1BA47);
             font-size: 1rem;
             font-weight: 800;
             line-height: 1.2;
@@ -701,7 +701,7 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-text">
-                <p class="hero-tagline" style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px;"><span id="typewriter-text"></span><span class="typewriter-cursor">|</span></p>
+                <p class="hero-tagline" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-color); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px;"><span id="typewriter-text"></span><span class="typewriter-cursor">|</span></p>
                 <h1>Free On-Site Estimate. <span class="highlight">Permit Plan in 48 Hours.</span></h1>
                 <p>Need more space without moving? Book a free site visit and see what your home addition could cost. Wolf Carpenters handles planning, permits, and construction with a local in-house crew: <strong>no subcontractors, no shortcuts.</strong></p>
 
@@ -815,7 +815,7 @@
     <!-- Transformation Video Section -->
     <section class="transformation-video-section" id="transformations">
         <div class="container">
-            <h2 class="section-title">See The <span style="color: var(--primary-color);">Transformation</span></h2>
+            <h2 class="section-title">See The <span style="color: var(--accent-color);">Transformation</span></h2>
             <p class="section-subtitle">Watch the complete journey of a real home addition: Before, During Construction, and After</p>
 
             <div class="video-wrapper">
@@ -1011,7 +1011,7 @@
                 <p><strong>Remodeling reshapes what you already have. An addition gives you more of what you need, without compromise.</strong></p>
                 <p>When your family is growing, your work-from-home needs have changed, or you simply need more room to breathe, a home addition is the answer. We don't just build extra square footage. We create seamless extensions that feel like they've always been part of your home.</p>
                 <p>From designing the perfect master suite to adding that home office you've been dreaming about, our additions blend architecture, function, and your lifestyle into one cohesive space.</p>
-                <p style="color: var(--primary-color); font-weight: 600; font-size: 1.15rem;">More space. Same home. Better living.</p>
+                <p style="color: var(--accent-color); font-weight: 600; font-size: 1.15rem;">More space. Same home. Better living.</p>
             </div>
         </div>
     </section>
@@ -1069,7 +1069,7 @@
 
     <!-- Build Journey Section - Visual Construction Timeline -->
     <section class="build-journey-section" id="build-journey">        <div class="container">
-            <h2 class="section-title">Watch Your Addition <span style="color: var(--primary-color);">Come To Life</span></h2>
+            <h2 class="section-title">Watch Your Addition <span style="color: var(--accent-color);">Come To Life</span></h2>
             <p class="section-subtitle">From foundation to finish, see exactly how we build your dream space, step by step</p>
             
             <div class="steps-grid">
@@ -1352,11 +1352,11 @@
                 </div>
                 <div class="team-text">
                     <span class="family-badge">🏡 Family-Owned Since 2015</span>
-                    <h2>Meet The <span style="color: var(--primary-color);">Wolf Family</span> Behind Your Dream Home Addition</h2>
+                    <h2>Meet The <span style="color: var(--accent-color);">Wolf Family</span> Behind Your Dream Home Addition</h2>
                     <p><strong>We're not just contractorswe're a family business.</strong> For over 10 years, Wolf has been transforming homes with the same care we'd give our own family's home.</p>
                     <p>From a small family carpentry shop to a full team of addition specialists, every project is treated like familybecause our clients become part of the Wolf family.</p>
                     <p><strong>When you choose Wolf, you get tradition, craftsmanship values, and personal commitment to excellence.</strong></p>
-                    <p style="color: var(--primary-color); font-weight: 600; font-size: 1.15rem;">Your home addition deserves to be built by people who truly care.</p>
+                    <p style="color: var(--accent-color); font-weight: 600; font-size: 1.15rem;">Your home addition deserves to be built by people who truly care.</p>
                     
                     <div class="team-stats">
                         <div class="stat-item">
@@ -1659,7 +1659,6 @@
         function trackCallClick(){
             if(typeof window.wolfTrackGoogleLead === 'function'){
                 window.wolfTrackGoogleLead('phone_call_click', {
-                    send_to: 'AW-16525015107/IFTRCPrGsMccEMPw3sc9',
                     phone_number: '+17813364594'
                 });
             } else if(typeof gtag === 'function') {
