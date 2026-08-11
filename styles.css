@@ -5,8 +5,9 @@
 }
 
 :root {
-    --primary-color: #00C853;
+    --primary-color: #E1BA47;
     --accent-color: #E1BA47;
+    --cta-color: #00C853;
     --secondary-color: #010101;
     --support-color: #F5F6F7;
     --white: #ffffff;
@@ -102,7 +103,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-cta {
-    background: var(--primary-color);
+    background: var(--cta-color);
     color: var(--secondary-color);
     padding: 12px 30px;
     text-decoration: none;
@@ -110,14 +111,14 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     font-family: 'Montserrat', sans-serif;
     transition: all 0.3s ease;
-    border: 2px solid var(--primary-color);
+    border: 2px solid var(--cta-color);
     position: relative;
     top: 0;
 }
 
 .nav-cta:hover {
     background: transparent;
-    color: var(--primary-color);
+    color: var(--cta-color);
     transform: translateY(-2px);
 }
 
@@ -527,7 +528,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .cta-button {
     display: inline-block;
-    background: var(--primary-color);
+    background: var(--cta-color);
     color: var(--secondary-color);
     padding: 18px 45px;
     text-decoration: none;
@@ -536,13 +537,13 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.1rem;
     transition: all 0.3s ease;
-    border: 2px solid var(--primary-color);
+    border: 2px solid var(--cta-color);
     box-shadow: 0 4px 15px rgba(0, 200, 83, 0.3);
 }
 
 .cta-button:hover {
     background: transparent;
-    color: var(--primary-color);
+    color: var(--cta-color);
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0, 200, 83, 0.4);
 }
@@ -1204,7 +1205,7 @@ footer p {
 
 .hero-form-container .submit-button {
     width: 100%;
-    background: var(--primary-color);
+    background: var(--cta-color);
     color: var(--secondary-color);
     padding: 13px;
     border: none;
@@ -1263,7 +1264,7 @@ footer p {
 
 .submit-button {
     width: 100%;
-    background: var(--primary-color);
+    background: var(--cta-color);
     color: var(--secondary-color);
     padding: 15px;
     border: none;
@@ -1286,7 +1287,7 @@ footer p {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background: var(--primary-color);
+    background: var(--cta-color);
     color: var(--secondary-color);
     width: 70px;
     height: 70px;
